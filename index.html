@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Famille Lhopital</title>
+<style>
+:root{
+  --bg:#f4f7fc; --card:#ffffff; --text:#1e293b; --muted:#64748b; --border:#e2e8f0;
+  --accent:#3b82f6; --accent-hover:#2563eb; --accent-soft:#eff6ff;
+  --font:"Lexend","Lexend Deca","Verdana","Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0f172a;--card:#1e293b;--text:#f8fafc;--muted:#94a3b8;--border:#334155;
+    --accent:#60a5fa;--accent-hover:#93c5fd;--accent-soft:#1e3a8a;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:18px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}
+.container{max-width:600px;width:100%;text-align:center}
+h1{font-size:2.2em;margin:0 0 10px;font-weight:800;letter-spacing:-0.02em}
+.subtitle{color:var(--muted);margin:0 0 32px;font-size:1.1em}
+.card{background:var(--card);border:2px solid var(--border);border-radius:20px;padding:32px 24px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.05)}
+.menu-list{display:grid;gap:16px;list-style:none;padding:0;margin:0}
+.menu-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--bg);border:2px solid var(--border);border-radius:14px;color:var(--text);text-decoration:none;font-weight:700;transition:all .2s ease}
+.menu-item:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px)}
+.menu-item span.icon{font-size:1.4em}
+footer{margin-top:32px;color:var(--muted);font-size:0.9em}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Famille Lhopital</h1>
+  <p class="subtitle">Espace d'apprentissage et de révision familial</p>
+
+  <div class="card">
+    <ul class="menu-list">
+      <li>
+        <a href="qcm/chronologie_romaine_et_byzantine_qcm.html" class="menu-item">
+          <span style="display:flex;align-items:center;gap:12px;"><span class="icon">🏛️</span> Chronologie Romaine & Byzantine</span>
+          <span>→</span>
+        </a>
+      </li>
+      <!-- Vous pourrez ajouter d'autres liens ici facilement -->
+    </ul>
+  </div>
+
+  <footer>
+    Site officiel de la famille Lhopital &copy; 2026
+  </footer>
+</div>
+</body>
+</html>
