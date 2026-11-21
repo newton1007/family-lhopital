@@ -1,154 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Famille Lhopital — Le Sud & Nos Révisions</title>
-<style>
-:root{
-  --bg: #fffbf8;
-  --card: #ffffff;
-  --text: #2c3e50;
-  --muted: #7f8c8d;
-  --border: #f3d6d6;
-  --rct-red: #c0392b;       /* Rouge emblématique RCT */
-  --rct-black: #1e1e1e;     /* Noir RCT */
-  --sun: #f39c12;
-  --accent-soft: #fde8e8;
-  --font: "Lexend", "Lexend Deca", "Verdana", "Segoe UI", sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg: #141416;
-    --card: #1f1f23;
-    --text: #f1f5f9;
-    --muted: #94a3b8;
-    --border: #382424;
-    --rct-red: #e74c3c;
-    --rct-black: #ffffff;
-    --sun: #f1c40f;
-    --accent-soft: #3a1c1c;
-  }
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 19px;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 16px;
-  background-image: radial-gradient(circle at 10% 20%, rgba(192, 57, 43, 0.08) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 80%, rgba(243, 156, 18, 0.08) 0%, transparent 40%);
-}
-.container{
-  max-width: 680px;
-  width: 100%;
-  text-align: center;
-}
-.badge{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card);
-  border: 2px solid var(--border);
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-size: 0.85em;
-  font-weight: 700;
-  color: var(--rct-red);
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-}
-h1{
-  font-size: 2.5em;
-  margin: 0 0 12px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--rct-black);
-}
-@media (prefers-color-scheme: dark) {
-  h1 { color: #f8fafc; }
-}
-.subtitle{
-  color: var(--muted);
-  margin: 0 0 36px;
-  font-size: 1.15em;
-}
-.card{
-  background: var(--card);
-  border: 2px solid var(--border);
-  border-radius: 24px;
-  padding: 36px 28px;
-  box-shadow: 0 12px 30px -8px rgba(192, 57, 43, 0.08);
-  display: grid;
-  gap: 20px;
-}
-.welcome-text{
-  margin: 0 0 10px;
-  font-size: 1.05em;
-  color: var(--text);
-}
-.btn-qcm{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 16px 24px;
-  background: var(--rct-red);
-  color: #ffffff;
-  border: none;
-  border-radius: 16px;
-  font: inherit;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.35);
-}
-.btn-qcm:hover{
-  background: #a93226;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(192, 57, 43, 0.45);
-}
-.footer{
-  margin-top: 36px;
-  color: var(--muted);
-  font-size: 0.85em;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famille Lhopital | Sud & Rugby</title>
+    <style>
+        :root {
+            /* Palette RCT & Sud */
+            --rouge: #c0392b;
+            --noir: #1a1a1a;
+            --soleil: #f1c40f;
+            --ciel: #3498db;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --text: #2d3436;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--noir), var(--rouge));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .btn-sommaire {
+            display: inline-block;
+            background: var(--rouge);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background 0.2s;
+            border: 2px solid var(--noir);
+        }
+
+        .btn-sommaire:hover {
+            transform: scale(1.05);
+            background: #a93226;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text);
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <div class="badge">
-    <span>🔴⚫</span> Rouge & Noir • Fier de notre Sud
-  </div>
 
-  <h1>Famille Lhopital</h1>
-  <p class="subtitle">Entre douceur de vivre méditerranéenne et esprit rugby</p>
+    <header class="hero">
+        <h1>Famille Lhopital</h1>
+        <p>Le soleil du Sud, le cœur Rouge & Noir</p>
+    </header>
 
-  <div class="card">
-    <p class="welcome-text">
-      Bienvenue sur notre espace familial ! Ici, on vit au rythme du Sud, avec l'énergie du RCT dans le cœur et de belles révisions en famille.
-    </p>
-
-    <div style="margin-top: 10px;">
-      <a href="qcm/chronologie_romaine_et_byzantine_qcm.html" class="btn-qcm">
-        <span aria-hidden="true">🏉</span> Accéder au Sommaire des QCM →
-      </a>
+    <div class="container">
+        <div class="card">
+            <h2>Bienvenue chez nous !</h2>
+            <p>Ici, entre deux matchs de rugby et le chant des cigales, on apprend en s'amusant. Retrouvez tous nos QCM de révision ci-dessous.</p>
+            <br>
+            <a href="qcm/chronologie_romaine_et_byzantine_qcm.html" class="btn-sommaire">Accéder au Sommaire des QCM</a>
+        </div>
     </div>
-  </div>
 
-  <div class="footer">
-    Famille Lhopital &copy; 2026 • 🔴⚫ Toujours là pour gagner !
-  </div>
-</div>
+    <footer>
+        &copy; 2026 Famille Lhopital - Sud & Passion
+    </footer>
 </body>
 </html>
