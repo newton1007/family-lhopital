@@ -3,50 +3,150 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Famille Lhopital</title>
+<title>Famille Lhopital — Le Sud & Nos Révisions</title>
 <style>
 :root{
-  --bg:#f4f7fc; --card:#ffffff; --text:#1e293b; --muted:#64748b; --border:#e2e8f0;
-  --accent:#3b82f6; --accent-hover:#2563eb; --accent-soft:#eff6ff;
-  --font:"Lexend","Lexend Deca","Verdana","Segoe UI",sans-serif;
+  --bg: #fffbf5;
+  --card: #ffffff;
+  --text: #2c3e50;
+  --muted: #7f8c8d;
+  --border: #f3e5d0;
+  --sun: #f39c12;
+  --sea: #2980b9;
+  --sea-hover: #1f618d;
+  --olive: #27ae60;
+  --accent-soft: #ebf5fb;
+  --font: "Lexend", "Lexend Deca", "Verdana", "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark){
-  :root{--bg:#0f172a;--card:#1e293b;--text:#f8fafc;--muted:#94a3b8;--border:#334155;
-    --accent:#60a5fa;--accent-hover:#93c5fd;--accent-soft:#1e3a8a;}
+  :root{
+    --bg: #1a1e24;
+    --card: #222731;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #2f3747;
+    --sun: #f1c40f;
+    --sea: #38bdf8;
+    --sea-hover: #0ea5e9;
+    --olive: #4ade80;
+    --accent-soft: #082f49;
+  }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:18px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}
-.container{max-width:600px;width:100%;text-align:center}
-h1{font-size:2.2em;margin:0 0 10px;font-weight:800;letter-spacing:-0.02em}
-.subtitle{color:var(--muted);margin:0 0 32px;font-size:1.1em}
-.card{background:var(--card);border:2px solid var(--border);border-radius:20px;padding:32px 24px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.05)}
-.menu-list{display:grid;gap:16px;list-style:none;padding:0;margin:0}
-.menu-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--bg);border:2px solid var(--border);border-radius:14px;color:var(--text);text-decoration:none;font-weight:700;transition:all .2s ease}
-.menu-item:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px)}
-.menu-item span.icon{font-size:1.4em}
-footer{margin-top:32px;color:var(--muted);font-size:0.9em}
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 19px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background-image: radial-gradient(circle at 10% 20%, rgba(243, 156, 18, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(41, 128, 185, 0.08) 0%, transparent 40%);
+}
+.container{
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+}
+.badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: var(--sun);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+h1{
+  font-size: 2.5em;
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.subtitle{
+  color: var(--muted);
+  margin: 0 0 36px;
+  font-size: 1.15em;
+}
+.card{
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  padding: 36px 28px;
+  box-shadow: 0 12px 30px -8px rgba(0,0,0,0.06);
+  display: grid;
+  gap: 20px;
+}
+.welcome-text{
+  margin: 0 0 10px;
+  font-size: 1.05em;
+  color: var(--text);
+}
+.btn-qcm{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--sea);
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(41, 128, 185, 0.3);
+}
+.btn-qcm:hover{
+  background: var(--sea-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(41, 128, 185, 0.4);
+}
+.footer{
+  margin-top: 36px;
+  color: var(--muted);
+  font-size: 0.85em;
+}
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>Famille Lhopital</h1>
-  <p class="subtitle">Espace d'apprentissage et de révision familial</p>
-
-  <div class="card">
-    <ul class="menu-list">
-      <li>
-        <a href="qcm/chronologie_romaine_et_byzantine_qcm.html" class="menu-item">
-          <span style="display:flex;align-items:center;gap:12px;"><span class="icon">🏛️</span> Chronologie Romaine & Byzantine</span>
-          <span>→</span>
-        </a>
-      </li>
-      <!-- Vous pourrez ajouter d'autres liens ici facilement -->
-    </ul>
+  <div class="badge">
+    <span>☀️</span> Soleil & Cigales • Sud de la France
   </div>
 
-  <footer>
-    Site officiel de la famille Lhopital &copy; 2026
-  </footer>
+  <h1>Famille Lhopital</h1>
+  <p class="subtitle">Notre coin de paradis entre mer et collines</p>
+
+  <div class="card">
+    <p class="welcome-text">
+      Bienvenue sur notre espace familial ! Ici, on profite de la douceur de vivre méditerranéenne à quatre, entre moments de partage et révisions stimulantes.
+    </p>
+
+    <div style="margin-top: 10px;">
+      <a href="qcm/chronologie_romaine_et_byzantine_qcm.html" class="btn-qcm">
+        <span aria-hidden="true">📚</span> Accéder au Sommaire des QCM →
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Famille Lhopital &copy; 2026 • Fait avec ❤️ sous le soleil du Sud
+  </div>
 </div>
 </body>
 </html>
