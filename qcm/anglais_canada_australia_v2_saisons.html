@@ -3,45 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anglais – Discovering Australia</title>
+<title>Canada &amp; Australia — Quiz 2 : Les saisons</title>
 <style>
 :root{
-  --bg:#f8f9fa; --card:#ffffff; --text:#2d3436; --muted:#636e72; --border:#dfe6e9;
-  --seg:#b2bec3; --seg-done:#74b9ff; --gold:#fdcb6e; --gold-soft:#fff9e6;
-  --letter-bg:#e17055; --letter:#ffffff; --accent:#c0392b;
-  --ok:#00b894; --ok-soft:#e6faf5; --ko:#d63031; --ko-soft:#fde8e8;
-  --font:"Segoe UI",sans-serif;
+  --bg:#e9edf5; --card:#ffffff; --text:#1c2550; --muted:#4d5878; --border:#cdd5e8;
+  --seg:#cbd3e6; --seg-done:#7d8bbd; --gold:#c99a1e; --gold-soft:#fbf3dc;
+  --letter-bg:#e6ebf6; --letter:#28348a; --accent:#28348a;
+  --ok:#1d8a4e; --ok-soft:#e2f5ea; --ko:#c43d3d; --ko-soft:#fbe7e7;
+  --font:"Lexend","Lexend Deca","Verdana","Segoe UI",sans-serif;
   --size:19px; --lh:1.55; --ls:.01em; --ws:0;
 }
 body.accessible{ --size:22px; --lh:1.8; --ls:.04em; --ws:.12em; }
 @media (prefers-color-scheme: dark){
-  :root{--bg:#141416;--card:#1f1f23;--text:#f1f5f9;--muted:#94a3b8;--border:#382424;
-    --seg:#2d3748;--seg-done:#4299e1;--gold:#ecc94b;--gold-soft:#2c2512;
-    --letter-bg:#c0392b;--letter:#ffffff;--accent:#e74c3c;
-    --ok:#38a169;--ok-soft:#1a382b;--ko:#e53e3e;--ko-soft:#421d1d;}
+  :root{--bg:#141a2c;--card:#1d2540;--text:#eef1fb;--muted:#aab3cf;--border:#34405f;
+    --seg:#2e3854;--seg-done:#6573a6;--gold:#e0b440;--gold-soft:#3a3220;
+    --letter-bg:#2a3456;--letter:#c9d3ff;--accent:#9fb0ff;
+    --ok:#4fcf89;--ok-soft:#1b3a2a;--ko:#ff8080;--ko-soft:#442528;}
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:var(--size);
   line-height:var(--lh);letter-spacing:var(--ls);word-spacing:var(--ws);min-height:100vh}
-main{max-width:680px;margin:0 auto;padding:24px 16px 48px}
+main{max-width:640px;margin:0 auto;padding:24px 16px 48px}
 header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
-h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
-.subtitle{color:var(--muted);margin:0;font-size:.8em}
+h1{font-size:1.05em;margin:0;font-weight:700}
+.subtitle{color:var(--muted);margin:0;font-size:.75em}
 .tools{display:flex;gap:6px}
-.tools button,.tools a{font:inherit;font-size:.7em;padding:6px 12px;border-radius:999px;border:1.5px solid var(--border);
-  background:var(--card);color:var(--text);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.tools button{font:inherit;font-size:.68em;padding:5px 11px;border-radius:999px;border:1.5px solid var(--border);
+  background:var(--card);color:var(--text);cursor:pointer}
 
+/* Barre de progression en segments */
 .segments{display:flex;gap:6px;margin:0 0 8px;padding:3px 0}
-.segments span{flex:1;height:10px;border-radius:6px;background:var(--seg);transition:background .25s,transform .25s}
+.segments span{flex:1;height:54px;max-height:12vw;border-radius:6px;background:var(--seg);transition:background .25s,transform .25s}
 .segments span.done{background:var(--seg-done)}
-.segments span.current{background:var(--accent);transform:scaleY(1.3)}
-.count{color:var(--muted);font-size:.75em;margin:0 0 18px}
+.segments span.current{background:var(--gold);transform:scale(1.07);box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.count{color:var(--muted);font-size:.72em;margin:0 0 18px}
 
 .qrow{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
-.question{font-size:1.15em;font-weight:700;margin:0;letter-spacing:.02em;flex:1}
+.question{font-size:1.15em;font-weight:700;margin:0;letter-spacing:.03em;flex:1}
 .speak{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.72em;color:var(--text);
   background:var(--card);border:2px solid var(--border);border-radius:999px;padding:6px 16px;cursor:pointer;white-space:nowrap}
 .speak:hover{border-color:var(--accent)}
+.qimg{display:block;max-width:100%;max-height:340px;margin:0 auto 18px;border-radius:14px;border:2px solid var(--border);background:#fff}
 
 .choices{display:grid;gap:14px;list-style:none;padding:0;margin:0}
 .choice{width:100%;text-align:left;font:inherit;color:var(--text);background:var(--card);border:2px solid var(--border);
@@ -67,8 +69,10 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
 .feedback.ok{background:var(--ok-soft);border-left:6px solid var(--ok)}
 .feedback.ko{background:var(--ko-soft);border-left:6px solid var(--ko)}
 .feedback p,.hint p{margin:.2em 0}
-.btn{font:inherit;font-weight:700;border:none;border-radius:14px;padding:12px 24px;background:var(--accent);color:#fff;cursor:pointer}
-.btn.secondary{background:var(--border);color:var(--text)}
+.btn{font:inherit;font-weight:700;border:none;border-radius:14px;padding:12px 24px;background:var(--accent);color:var(--card);cursor:pointer}
+.btn.secondary{background:var(--letter-bg);color:var(--text)}
+.choice:focus-visible,.btn:focus-visible,.speak:focus-visible,.hint-btn:focus-visible,.tools button:focus-visible{
+  outline:3px solid var(--gold);outline-offset:3px}
 .hidden{display:none!important}
 
 .result{text-align:center;background:var(--card);border:2px solid var(--border);border-radius:18px;padding:28px 20px}
@@ -78,19 +82,21 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
 .review{text-align:left;margin-top:22px;display:grid;gap:12px}
 .review .item{border:2px solid var(--border);border-radius:14px;padding:12px 16px}
 .review .item p{margin:.2em 0}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+@media (max-width:520px){.qrow{flex-direction:column;gap:10px}.segments{gap:4px}}
 </style>
 </head>
 <body>
 <main>
+  <p style="margin:0 0 12px"><a href="index.html" style="color:inherit;font-weight:600">← Sommaire des QCM</a></p>
   <header>
     <div>
       <h1 id="title"></h1>
       <p class="subtitle" id="subtitle"></p>
     </div>
     <div class="tools">
-      <a href="index.html">← Sommaire QCM</a>
-      <button type="button" id="smaller">A−</button>
-      <button type="button" id="bigger">A+</button>
+      <button type="button" id="smaller" aria-label="Texte plus petit">A−</button>
+      <button type="button" id="bigger" aria-label="Texte plus grand">A+</button>
       <button type="button" id="toggle-access">Lecture facile</button>
     </div>
   </header>
@@ -102,13 +108,13 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
       <h2 class="question" id="question"></h2>
       <button type="button" class="speak" id="speak"><span aria-hidden="true">🔈</span> Écouter</button>
     </div>
+    <img class="qimg hidden" id="qimg" alt="">
     <ul class="choices" id="choices"></ul>
     <div class="hint hidden" id="hint" role="status"></div>
     <div class="feedback hidden" id="feedback" role="status"></div>
     <div class="below">
       <button type="button" class="hint-btn" id="hint-btn" aria-controls="hint" aria-expanded="false">
-        <span aria-hidden="true">💡</span> Besoin d’aide ?
-      </button>
+        <span aria-hidden="true">💡</span> Besoin d’aide ?</button>
       <button type="button" class="btn hidden" id="next">Question suivante →</button>
     </div>
   </section>
@@ -120,7 +126,6 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     <div class="actions">
       <button type="button" class="btn" id="retry-errors">Revoir mes erreurs</button>
       <button type="button" class="btn secondary" id="restart">Tout recommencer</button>
-      <a href="index.html" class="btn secondary" style="text-decoration:none">Retour aux QCM</a>
     </div>
     <div class="review" id="review"></div>
   </section>
@@ -128,131 +133,121 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
 
 <script id="quiz-data" type="application/json">
 {
-  "title": "Anglais — Discovering Australia",
-  "subtitle": "Geography, Wildlife & Culture",
-  "accessible": true,
-  "questions": [
-    {
-      "q": "What is the **capital city** of Australia?",
-      "choices": [
-        "Canberra",
-        "Sydney",
-        "Melbourne",
-        "Brisbane"
-      ],
-      "answer": 0,
-      "hint": "Attention : ce n'est pas Sydney !",
-      "explain": "Canberra is the **capital city** of Australia, while Sydney is the financial capital."
-    },
-    {
-      "q": "What is **Sydney** famous for?",
-      "choices": [
-        "The Opera House and being the financial capital",
-        "Being the official capital of Australia",
-        "Having no beaches",
-        "Being an inland desert city"
-      ],
-      "answer": 0,
-      "hint": "Un monument très connu en forme de voiles.",
-      "explain": "Sydney is the financial capital and is **famous for the Opera House**."
-    },
-    {
-      "q": "What is **Uluru** (Ayers Rock)?",
-      "choices": [
-        "A famous rock in the centre of Australia, sacred to Aboriginal people",
-        "The highest mountain in Australia",
-        "A famous beach in Sydney",
-        "An island in the south of Australia"
-      ],
-      "answer": 0,
-      "hint": "C'est un grand rocher rouge sacré au centre du pays.",
-      "explain": "Uluru (Ayers Rock) is a **famous rock in the centre of Australia**, sacred to Aboriginal people."
-    },
-    {
-      "q": "What is the **currency** used in Australia?",
-      "choices": [
-        "The Australian dollar",
-        "The US dollar",
-        "The Australian pound",
-        "The Euro"
-      ],
-      "answer": 0,
-      "hint": "C'est un dollar spécifique à l'Australie.",
-      "explain": "The currency of Australia is **the Australian dollar**."
-    },
-    {
-      "q": "Which animals are **wild animals** native to Australia?",
-      "choices": [
-        "Kangaroos, koalas, emus, and wombats",
-        "Lions, tigers, and elephants",
-        "Bears, wolves, and foxes",
-        "Pandas, monkeys, and camels"
-      ],
-      "answer": 0,
-      "hint": "Des animaux à poche (marsupiaux) très connus.",
-      "explain": "Native wild animals in Australia include **kangaroos, koalas, emus, and wombats**."
-    },
-    {
-      "q": "What is **Tasmania**?",
-      "choices": [
-        "An island in the south of Australia",
-        "The capital city of Australia",
-        "A famous desert in the north",
-        "A river in Sydney"
-      ],
-      "answer": 0,
-      "hint": "Une grande île au sud de l'Australie.",
-      "explain": "Tasmania is an **island in the south of Australia**, famous for the Tasmanian Devil."
-    },
-    {
-      "q": "How is **school lunchtime** in Australia compared to France?",
-      "choices": [
-        "Shorter lunch time, children have a packed lunch",
-        "Much longer lunch time with 3 courses",
-        "Children go home for 2 hours to eat",
-        "There is no lunch break at all"
-      ],
-      "answer": 0,
-      "hint": "Les enfants apportent leur repas dans une boîte (lunch box).",
-      "explain": "Australian children have a **shorter lunch time** than in France and bring a packed lunch box."
-    },
-    {
-      "q": "Which ocean is on the **east coast** of Australia?",
-      "choices": [
-        "The Pacific Ocean",
-        "The Indian Ocean",
-        "The Atlantic Ocean",
-        "The Arctic Ocean"
-      ],
-      "answer": 0,
-      "hint": "L'océan Pacifique est à l'est, l'océan Indien est à l'ouest.",
-      "explain": "The **Pacific Ocean** is on the east coast, and the Indian Ocean is on the west coast."
-    },
-    {
-      "q": "How big is Australia compared to other countries in the world?",
-      "choices": [
-        "It is the sixth-largest country in the world",
-        "It is the largest country in the world",
-        "It is the smallest country in the world",
-        "It is the 100th largest country"
-      ],
-      "answer": 0,
-      "hint": "Regarde en bas du document : 'the sixth-largest country...'",
-      "explain": "Australia is an island continent and **the sixth-largest country in the world**."
-    },
-    {
-      "q": "What are **the bush** and **the outback**?",
-      "choices": [
-        "The bush is native vegetation and the outback refers to remote desert areas",
-        "Two famous cities in Australia",
-        "Two types of dangerous spiders",
-        "Traditional Australian foods"
-      ],
-      "answer": 0,
-      "hint": "Ce sont des termes pour désigner la nature et les régions isolées.",
-      "explain": "The **bush** is native vegetation and the **outback** refers to remote desert areas."
-    }
-  ]
+ "title": "Canada & Australia — Quiz 2 : Les saisons",
+ "subtitle": "Why are the seasons reversed?",
+ "accessible": true,
+ "questions": [
+  {
+   "q": "Why are the **seasons** different in the two countries?",
+   "choices": [
+    "Because the Earth is tilted",
+    "Because Australia is small",
+    "Because Canada is cold"
+   ],
+   "answer": 0,
+   "hint": "Pense à la position de la Terre.",
+   "explain": "The seasons are different **because the Earth is tilted**."
+  },
+  {
+   "q": "The Earth is tilted on its…",
+   "choices": [
+    "axis",
+    "moon",
+    "ocean"
+   ],
+   "answer": 0,
+   "hint": "C'est la ligne imaginaire autour de laquelle la Terre tourne.",
+   "explain": "The Earth is tilted on its **axis**."
+  },
+  {
+   "q": "In December, the **Southern** Hemisphere is tilted ___ the Sun.",
+   "choices": [
+    "towards",
+    "away from",
+    "under"
+   ],
+   "answer": 0,
+   "hint": "C'est l'été en Australie : elle reçoit plus de soleil.",
+   "explain": "In December, the Southern Hemisphere is tilted **towards** the Sun."
+  },
+  {
+   "q": "In December, the **Northern** Hemisphere is tilted ___ the Sun.",
+   "choices": [
+    "away from",
+    "towards",
+    "into"
+   ],
+   "answer": 0,
+   "hint": "C'est l'hiver au Canada : il reçoit moins de soleil.",
+   "explain": "In December, the Northern Hemisphere is tilted **away from** the Sun."
+  },
+  {
+   "q": "What does **reversed** mean?",
+   "choices": [
+    "inversées",
+    "identiques",
+    "très courtes"
+   ],
+   "answer": 0,
+   "hint": "Les saisons sont à l'opposé.",
+   "explain": "**Reversed** = inversé. The seasons are opposite."
+  },
+  {
+   "q": "In Australia, December is the start of the…",
+   "choices": [
+    "summer holidays",
+    "winter holidays",
+    "school year"
+   ],
+   "answer": 0,
+   "hint": "C'est l'été là-bas.",
+   "explain": "In Australia, December is the beginning of the **summer holidays**."
+  },
+  {
+   "q": "Typical December activities in **Australia**:",
+   "choices": [
+    "beach and sun",
+    "skiing and snow",
+    "ice skating"
+   ],
+   "answer": 0,
+   "hint": "Il fait chaud en décembre en Australie.",
+   "explain": "In December, Australians enjoy the **beach** and the sun."
+  },
+  {
+   "q": "In Canada, December is a ___ holiday period.",
+   "choices": [
+    "winter",
+    "summer",
+    "spring"
+   ],
+   "answer": 0,
+   "hint": "Il neige au Canada en décembre.",
+   "explain": "In Canada, December is a **winter** holiday period."
+  },
+  {
+   "q": "Which sentence is **true**?",
+   "choices": [
+    "Winter in Canada = summer in Australia",
+    "Winter in Canada = winter in Australia",
+    "Both countries have the same seasons"
+   ],
+   "answer": 0,
+   "hint": "Les saisons sont inversées.",
+   "explain": "When it is **winter in Canada**, it is **summer in Australia**."
+  },
+  {
+   "q": "Which hemisphere gets **more sun** in December?",
+   "choices": [
+    "Southern",
+    "Northern",
+    "Both the same"
+   ],
+   "answer": 0,
+   "hint": "C'est celui qui est penché vers le soleil.",
+   "explain": "In December, the **Southern** Hemisphere gets more sun."
+  }
+ ]
 }
 </script>
 <script>
@@ -260,10 +255,11 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
   "use strict";
   var data = JSON.parse(document.getElementById("quiz-data").textContent);
   var $ = function (id) { return document.getElementById(id); };
-  var LETTERS = ["A", "B", "C", "D"];
+  var LETTERS = ["A", "B", "C", "D", "E", "F"];
   var order = [], idx = 0, score = 0, errors = [], answered = false, current = null;
 
   function setRich(el, text) {
+    // Rend **gras** sans innerHTML.
     el.textContent = "";
     String(text).split(/(\*\*[^*]+\*\*)/).forEach(function (part) {
       if (/^\*\*[^*]+\*\*$/.test(part)) {
@@ -277,16 +273,20 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     return a;
   }
 
+  // Lecture à voix haute
   var canSpeak = "speechSynthesis" in window;
   function speak(text) {
     if (!canSpeak) return;
     window.speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = 0.9;
+    u.lang = "fr-FR"; u.rate = 0.9;
+    var v = window.speechSynthesis.getVoices().filter(function (x) { return /^fr/i.test(x.lang); })[0];
+    if (v) u.voice = v;
     window.speechSynthesis.speak(u);
   }
   if (!canSpeak) $("speak").classList.add("hidden");
 
+  // Taille du texte et mode lecture facile
   var size = null;
   function applySize() { if (size) document.body.style.setProperty("--size", size + "px"); }
   function baseSize() { return size || parseFloat(getComputedStyle(document.body).fontSize); }
@@ -297,7 +297,9 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     $("toggle-access").textContent = on ? "Mode standard" : "Lecture facile";
     size = null; document.body.style.removeProperty("--size");
   }
-  $("toggle-access").addEventListener("click", function () { setAccessible(!document.body.classList.contains("accessible")); });
+  $("toggle-access").addEventListener("click", function () {
+    setAccessible(!document.body.classList.contains("accessible"));
+  });
 
   function drawSegments() {
     var box = $("segments"); box.textContent = "";
@@ -321,6 +323,9 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     drawSegments();
     $("count").textContent = "Question " + (idx + 1) + " sur " + order.length;
     setRich($("question"), q.q);
+    var img = $("qimg");
+    if (q.image) { img.src = q.image; img.alt = q.imageAlt || "Illustration de la question"; img.classList.remove("hidden"); }
+    else { img.removeAttribute("src"); img.classList.add("hidden"); }
 
     var list = $("choices"); list.textContent = "";
     var opts = shuffle(q.choices.map(function (c, i) { return { text: c, correct: i === q.answer }; }));
@@ -373,7 +378,7 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     var fb = $("feedback");
     fb.className = "feedback " + (ok ? "ok" : "ko");
     var head = document.createElement("p"); var s = document.createElement("strong");
-    s.textContent = ok ? "✅ Well done / Bravo !" : "Not quite... La bonne réponse a un ✓.";
+    s.textContent = ok ? "✅ Bonne réponse !" : "Pas tout à fait… La bonne réponse a un ✓.";
     head.appendChild(s); fb.appendChild(head);
     if (current.explain) { var p = document.createElement("p"); setRich(p, current.explain); fb.appendChild(p); }
     $("next").classList.remove("hidden"); $("next").focus({ preventScroll: true });
@@ -398,10 +403,10 @@ h1{font-size:1.1em;margin:0;font-weight:700;color:var(--accent)}
     $("quiz").classList.add("hidden"); $("result").classList.remove("hidden");
     var total = order.length, pct = score / total;
     $("score").textContent = score + " / " + total;
-    $("message").textContent = pct === 1 ? "🏆 Perfect! You know Australia very well."
-      : pct >= 0.7 ? "🌟 Great job! Review your few mistakes."
-      : pct >= 0.4 ? "👍 Good start! Keep practicing."
-      : "💪 Don't worry! Try again to improve.";
+    $("message").textContent = pct === 1 ? "🏆 Parfait ! Tu maîtrises ce chapitre."
+      : pct >= 0.7 ? "🌟 Très bien ! Encore un petit effort sur les erreurs."
+      : pct >= 0.4 ? "👍 C'est un bon début. Revois tes erreurs et réessaie !"
+      : "💪 Ce n'est pas grave : chaque essai t'aide à apprendre. On recommence ?";
     $("retry-errors").classList.toggle("hidden", errors.length === 0);
     var review = $("review"); review.textContent = "";
     errors.forEach(function (i) {
