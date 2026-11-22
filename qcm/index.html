@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM & Révisions | Famille Lhopital</title>
+    <style>
+        :root {
+            --rouge: #c0392b;
+            --noir: #1a1a1a;
+            --soleil: #f1c40f;
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --text: #2d3436;
+            --border: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header-nav {
+            background: var(--noir);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--noir), var(--rouge));
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .subject-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--rouge);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subject-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .qcm-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .qcm-list li {
+            margin-bottom: 12px;
+        }
+
+        .qcm-list a {
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--bg);
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .qcm-list a:hover {
+            background: #fff;
+            border-color: var(--rouge);
+            color: var(--rouge);
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .qcm-list a span.tag {
+            font-size: 0.7em;
+            background: var(--rouge);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .empty-msg {
+            color: #a0aec0;
+            font-style: italic;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-nav">
+        <span>🔴⚫ Famille Lhopital</span>
+        <a href="../index.html">← Accueil Principal</a>
+    </div>
+
+    <header class="hero">
+        <h1>Espace QCM & Révisions</h1>
+        <p>Retrouvez ici tous vos quiz classés par matière</p>
+    </header>
+
+    <div class="container">
+        <div class="subjects-grid">
+
+            <!-- ANGLAIS -->
+            <div class="subject-card">
+                <h3>🇬🇧 Anglais</h3>
+                <ul class="qcm-list">
+                    <li>
+                        <a href="anglais_canada_australia_v1.html">
+                            Canada vs Australia <span class="tag">Quiz 1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="anglais_australia_facts_v2.html">
+                            Discovering Australia <span class="tag">Quiz 2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="anglais_australia_vocab_v3.html">
+                            Vocabulary & Grammar <span class="tag">Quiz 3</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Histoire - Géographie -->
+            <div class="subject-card">
+                <h3>🏛️ Histoire - Géographie</h3>
+                <p class="empty-msg">Bientôt disponible...</p>
+            </div>
+
+            <!-- Mathématiques -->
+            <div class="subject-card">
+                <h3>📐 Mathématiques</h3>
+                <p class="empty-msg">Bientôt disponible...</p>
+            </div>
+
+            <!-- Français -->
+            <div class="subject-card">
+                <h3>📚 Français</h3>
+                <p class="empty-msg">Bientôt disponible...</p>
+            </div>
+
+            <!-- Sciences -->
+            <div class="subject-card">
+                <h3>🧪 Sciences</h3>
+                <p class="empty-msg">Bientôt disponible...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Famille Lhopital • 🔴⚫
+    </footer>
+
+</body>
+</html>
