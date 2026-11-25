@@ -1,9 +1,11 @@
+---
+---
 <!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Italien – L'article indéfini en voyage</title>
+<title>QCM</title>
 <style>
 :root{
   --bg:#e9edf5; --card:#ffffff; --text:#1c2550; --muted:#4d5878; --border:#cdd5e8;
@@ -85,15 +87,10 @@ h1{font-size:1.05em;margin:0;font-weight:700}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 @media (max-width:520px){.qrow{flex-direction:column;gap:10px}.segments{gap:4px}}
 </style>
-<style id="theme-famille">
-:root{--bg:#f8f9fa;--text:#1a1a1a;--muted:#555;--border:#e2e8f0;--seg:#ecd9d6;--seg-done:#c0392b;--gold:#b8860b;--gold-soft:#fdf6d8;--letter-bg:#fbe9e7;--letter:#c0392b;--accent:#c0392b}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1a1a;--card:#262626;--text:#f5f5f5;--muted:#bdbdbd;--border:#3a3a3a;--seg:#3a3a3a;--seg-done:#e06050;--gold:#f1c40f;--gold-soft:#3a3315;--letter-bg:#3d2320;--letter:#ff8a7a;--accent:#ff8a7a}}
-body::before{content:"";display:block;height:8px;background:linear-gradient(90deg,#1a1a1a,#c0392b,#f1c40f)}
-</style>
+    {% include theme-head.html racine="../" %}
 </head>
 <body>
 <main>
-  <p style="margin:0 0 12px"><a href="index.html" style="color:inherit;font-weight:600">← Sommaire des QCM</a></p>
   <header>
     <div>
       <h1 id="title"></h1>
@@ -138,119 +135,129 @@ body::before{content:"";display:block;height:8px;background:linear-gradient(90de
 
 <script id="quiz-data" type="application/json">
 {
-  "title": "Italien – L'article indéfini en voyage",
-  "subtitle": "un, uno, una, un' • dei, degli, delle • Buon viaggio !",
+  "title": "L'article indéfini en italien",
+  "subtitle": "Italien – Articles et pluriel – Version 2",
   "accessible": true,
   "questions": [
     {
-      "q": "À la gare, on achète… « ___ biglietto » (un billet).",
+      "q": "Quel article devant **ragazzo** ?",
+      "choices": [
+        "uno",
+        "un",
+        "una",
+        "un'"
+      ],
+      "answer": 1,
+      "hint": "Ragazzo est masculin et commence par une consonne simple.",
+      "explain": "On dit **un ragazzo** : un + consonne au masculin."
+    },
+    {
+      "q": "Quel article devant **studente** ?",
       "choices": [
         "un",
+        "una",
         "uno",
+        "un'"
+      ],
+      "answer": 2,
+      "hint": "Regarde le début : s + consonne.",
+      "explain": "On dit **uno studente** : uno s'emploie devant s + consonne."
+    },
+    {
+      "q": "Quel article devant **zerbino** (paillasson) ?",
+      "choices": [
+        "uno",
+        "un",
+        "una",
+        "dei"
+      ],
+      "answer": 0,
+      "hint": "Pense aux mêmes cas que l'article défini lo.",
+      "explain": "On dit **uno zerbino** : uno s'emploie devant z."
+    },
+    {
+      "q": "Quel article **féminin** devant une consonne ?",
+      "choices": [
+        "un'",
+        "uno",
+        "un",
+        "una"
+      ],
+      "answer": 3,
+      "hint": "Il se termine par -a, comme beaucoup de mots féminins.",
+      "explain": "Au féminin, on dit **una** devant une consonne."
+    },
+    {
+      "q": "Un nom **féminin** commence par une voyelle. Quel article ?",
+      "choices": [
+        "un'",
+        "una",
+        "uno",
+        "un"
+      ],
+      "answer": 0,
+      "hint": "Au féminin, le -a disparaît devant une voyelle.",
+      "explain": "Au féminin devant une voyelle, on écrit **un'** avec une apostrophe."
+    },
+    {
+      "q": "L'article indéfini existe seulement…",
+      "choices": [
+        "au pluriel",
+        "au singulier",
+        "au féminin",
+        "au masculin"
+      ],
+      "answer": 1,
+      "hint": "Un, uno, una : combien de choses désignent-ils ?",
+      "explain": "L'article indéfini existe **seulement au singulier**. Au pluriel, on utilise le partitif."
+    },
+    {
+      "q": "Le **partitif** pluriel se forme avec…",
+      "choices": [
+        "un + nom",
+        "di + article défini",
+        "a + article défini",
+        "uno + nom"
+      ],
+      "answer": 1,
+      "hint": "Dei = di + i.",
+      "explain": "Le partitif, c'est **di + article défini** : dei, degli, delle."
+    },
+    {
+      "q": "Quel est le pluriel de **un ragazzo** ?",
+      "choices": [
+        "degli ragazzi",
+        "delle ragazzi",
+        "dei ragazzi",
+        "uni ragazzi"
+      ],
+      "answer": 2,
+      "hint": "Un devant consonne → di + i.",
+      "explain": "**un ragazzo** devient **dei ragazzi**."
+    },
+    {
+      "q": "Quel est le pluriel de **uno studente** ?",
+      "choices": [
+        "dei studenti",
+        "degli studenti",
+        "delle studenti",
+        "uni studenti"
+      ],
+      "answer": 1,
+      "hint": "Uno va avec gli, donc di + gli.",
+      "explain": "**uno studente** devient **degli studenti**."
+    },
+    {
+      "q": "Quel partitif pour des noms **féminins** pluriels ?",
+      "choices": [
+        "delle",
+        "dei",
+        "degli",
         "una"
       ],
       "answer": 0,
-      "hint": "**Biglietto** est masculin et commence par **b**, une consonne simple.",
-      "explain": "Masculin devant une consonne simple : **un** → **un biglietto**, **un treno**."
-    },
-    {
-      "q": "Pour la randonnée : « ___ zaino » (un sac à dos).",
-      "choices": [
-        "un",
-        "una",
-        "uno"
-      ],
-      "answer": 2,
-      "hint": "Le mot commence par **z**. Pense au cas spécial de **lo**.",
-      "explain": "Mêmes cas que **lo** (z, s + consonne, x, y, pn, ps, gn) : **uno** → **uno zaino**."
-    },
-    {
-      "q": "En Italie, on rencontre… « ___ studente » (un étudiant).",
-      "choices": [
-        "uno",
-        "un",
-        "un'"
-      ],
-      "answer": 0,
-      "hint": "Le mot commence par **s + consonne** (st).",
-      "explain": "Devant **s + consonne**, c'est **uno** : **uno studente**."
-    },
-    {
-      "q": "Il nous faut… « ___ valigia » (une valise).",
-      "choices": [
-        "un'",
-        "una",
-        "uno"
-      ],
-      "answer": 1,
-      "hint": "**Valigia** est féminin et commence par une **consonne**.",
-      "explain": "Féminin devant une consonne : **una** → **una valigia**, **una spiaggia**."
-    },
-    {
-      "q": "On visite… « ___ isola » (une île).",
-      "choices": [
-        "una",
-        "un",
-        "un'"
-      ],
-      "answer": 2,
-      "hint": "Féminin devant une **voyelle** : on met une apostrophe.",
-      "explain": "Féminin devant une voyelle : **un'** avec apostrophe → **un'isola**, **un'amica**."
-    },
-    {
-      "q": "On dort dans… « ___ albergo » (un hôtel).",
-      "choices": [
-        "un'",
-        "un",
-        "uno"
-      ],
-      "answer": 1,
-      "hint": "**Albergo** est **masculin**. Au masculin, jamais d'apostrophe !",
-      "explain": "Masculin devant une voyelle : **un**, sans apostrophe → **un albergo**, **un aeroporto**."
-    },
-    {
-      "q": "Pluriel : « un treno » → « ___ treni » (des trains).",
-      "choices": [
-        "degli",
-        "dei",
-        "delle"
-      ],
-      "answer": 1,
-      "hint": "**Un** devient… Pense à **di + i**.",
-      "explain": "Le pluriel de **un** est **dei** (di + i) : **dei treni**, **dei ragazzi**."
-    },
-    {
-      "q": "Pluriel : « uno zaino » → « ___ zaini » (des sacs à dos).",
-      "choices": [
-        "dei",
-        "delle",
-        "degli"
-      ],
-      "answer": 2,
-      "hint": "**Uno** suit les mêmes règles que **lo / gli**.",
-      "explain": "Le pluriel de **uno** est **degli** (di + gli) : **degli zaini**, **degli studenti**."
-    },
-    {
-      "q": "Pluriel : « una cartolina » → « ___ cartoline » (des cartes postales).",
-      "choices": [
-        "delle",
-        "dei",
-        "degli"
-      ],
-      "answer": 0,
-      "hint": "Au féminin pluriel, il n'y a qu'**une** forme.",
-      "explain": "Le pluriel de **una** et **un'** est **delle** (di + le) : **delle cartoline**, **delle isole**."
-    },
-    {
-      "q": "Comment fabrique-t-on **dei, degli, delle** ?",
-      "choices": [
-        "di + l'article défini",
-        "un + s",
-        "a + l'article défini"
-      ],
-      "answer": 0,
-      "hint": "Regarde la fin du mot : **dei** = d + **i**, **delle** = d + **le**.",
-      "explain": "C'est le **partitif** : **di + i = dei**, **di + gli = degli**, **di + le = delle**."
+      "hint": "Di + le, l'article féminin pluriel.",
+      "explain": "Super ! Au féminin pluriel, on dit **delle**."
     }
   ]
 }

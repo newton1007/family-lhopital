@@ -1,9 +1,11 @@
+---
+---
 <!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Italien – L'article défini en voyage</title>
+<title>QCM</title>
 <style>
 :root{
   --bg:#e9edf5; --card:#ffffff; --text:#1c2550; --muted:#4d5878; --border:#cdd5e8;
@@ -85,15 +87,10 @@ h1{font-size:1.05em;margin:0;font-weight:700}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 @media (max-width:520px){.qrow{flex-direction:column;gap:10px}.segments{gap:4px}}
 </style>
-<style id="theme-famille">
-:root{--bg:#f8f9fa;--text:#1a1a1a;--muted:#555;--border:#e2e8f0;--seg:#ecd9d6;--seg-done:#c0392b;--gold:#b8860b;--gold-soft:#fdf6d8;--letter-bg:#fbe9e7;--letter:#c0392b;--accent:#c0392b}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1a1a;--card:#262626;--text:#f5f5f5;--muted:#bdbdbd;--border:#3a3a3a;--seg:#3a3a3a;--seg-done:#e06050;--gold:#f1c40f;--gold-soft:#3a3315;--letter-bg:#3d2320;--letter:#ff8a7a;--accent:#ff8a7a}}
-body::before{content:"";display:block;height:8px;background:linear-gradient(90deg,#1a1a1a,#c0392b,#f1c40f)}
-</style>
+    {% include theme-head.html racine="../" %}
 </head>
 <body>
 <main>
-  <p style="margin:0 0 12px"><a href="index.html" style="color:inherit;font-weight:600">← Sommaire des QCM</a></p>
   <header>
     <div>
       <h1 id="title"></h1>
@@ -138,119 +135,129 @@ body::before{content:"";display:block;height:8px;background:linear-gradient(90de
 
 <script id="quiz-data" type="application/json">
 {
-  "title": "Italien – L'article défini en voyage",
-  "subtitle": "il, lo, l', la, i, gli, le • Valise prête ? Partenza !",
+  "title": "Le pluriel des noms et des adjectifs",
+  "subtitle": "Italien – Articles et pluriel – Version 3",
   "accessible": true,
   "questions": [
     {
-      "q": "On part ! Complète : « ___ treno » (le train).",
+      "q": "Quel est le pluriel de **la pera** ?",
       "choices": [
-        "lo",
-        "il",
-        "l'"
+        "le peri",
+        "le pere",
+        "la pere",
+        "i pere"
       ],
       "answer": 1,
-      "hint": "Regarde la première lettre : **t**, une consonne simple.",
-      "explain": "Devant une consonne simple, le masculin prend **il** : **il treno**, **il biglietto** (le billet)."
+      "hint": "Un nom féminin en -a change sa dernière lettre.",
+      "explain": "Féminin en **-a → -e** : la pera devient le pere."
     },
     {
-      "q": "Complète : « ___ zaino » (le sac à dos).",
+      "q": "Quel est le pluriel de **il sogno** ?",
       "choices": [
-        "il",
-        "la",
-        "lo"
+        "i sogne",
+        "gli sogni",
+        "i sogni",
+        "le sogni"
       ],
       "answer": 2,
-      "hint": "Le mot commence par **z**. C'est un cas spécial.",
-      "explain": "Devant **z**, on met **lo** : **lo zaino**. Pareil devant s + consonne, x, y, pn, ps, gn."
+      "hint": "Un nom masculin en -o prend une autre voyelle.",
+      "explain": "Masculin en **-o → -i** : il sogno devient i sogni."
     },
     {
-      "q": "Complète : « ___ aeroporto » (l'aéroport).",
+      "q": "Quel est le pluriel de **il problema** ?",
       "choices": [
-        "l'",
-        "lo",
-        "il"
-      ],
-      "answer": 0,
-      "hint": "Le mot commence par une **voyelle** (a).",
-      "explain": "Masculin devant une voyelle : **l'** avec apostrophe → **l'aeroporto**, **l'albergo** (l'hôtel)."
-    },
-    {
-      "q": "Complète : « ___ valigia » (la valise).",
-      "choices": [
-        "la",
-        "il",
-        "le"
-      ],
-      "answer": 0,
-      "hint": "**Valigia** est féminin et finit par **-a**.",
-      "explain": "Féminin devant une consonne : **la** → **la valigia**, **la spiaggia** (la plage)."
-    },
-    {
-      "q": "Complète : « ___ stazione » (la gare).",
-      "choices": [
-        "lo",
-        "la",
-        "l'"
+        "i probleme",
+        "i problemi",
+        "le probleme",
+        "i problema"
       ],
       "answer": 1,
-      "hint": "**Stazione** est **féminin**. Le cas « s + consonne » ne compte que pour le masculin.",
-      "explain": "Au féminin, devant une consonne, c'est toujours **la** : **la stazione**. Le **lo** est seulement masculin."
+      "hint": "Attention : ce nom en -a est masculin.",
+      "explain": "Les masculins en -a font aussi **-i** : i problemi."
     },
     {
-      "q": "Complète : « ___ isola » (l'île).",
+      "q": "Quel est le pluriel de **la chiave** ?",
       "choices": [
-        "la",
-        "lo",
-        "l'"
+        "le chiave",
+        "le chiavi",
+        "le chiavie",
+        "i chiavi"
+      ],
+      "answer": 1,
+      "hint": "Les noms en -e changent tous de la même façon.",
+      "explain": "Les noms en **-e → -i** : la chiave devient le chiavi."
+    },
+    {
+      "q": "Quel est le pluriel de **un uomo** ?",
+      "choices": [
+        "due uomi",
+        "due uomini",
+        "due uome",
+        "due uomo"
+      ],
+      "answer": 1,
+      "hint": "C'est une exception à apprendre par cœur.",
+      "explain": "Exception : **un uomo → due uomini**."
+    },
+    {
+      "q": "Quel nom est **invariable** au pluriel ?",
+      "choices": [
+        "la pera",
+        "il sogno",
+        "la città",
+        "la chiave"
       ],
       "answer": 2,
-      "hint": "Féminin… mais le mot commence par une **voyelle**.",
-      "explain": "Féminin devant une voyelle : **l'** → **l'isola**. Comme en français !"
+      "hint": "Les mots qui finissent par un accent ne changent pas.",
+      "explain": "Les mots accentués sont invariables : **le città**."
     },
     {
-      "q": "Pluriel de « il biglietto » (le billet) : ___ biglietti",
+      "q": "Quel est le pluriel de **la mano** ?",
       "choices": [
-        "gli",
-        "i",
-        "le"
-      ],
-      "answer": 1,
-      "hint": "Au singulier c'est **il**. Quel est son pluriel ?",
-      "explain": "**il** devient **i** au pluriel : **i biglietti**."
-    },
-    {
-      "q": "Pluriel de « lo zaino » : ___ zaini",
-      "choices": [
-        "i",
-        "le",
-        "gli"
+        "le mane",
+        "i mani",
+        "le mani",
+        "le mano"
       ],
       "answer": 2,
-      "hint": "Au singulier c'est **lo**. Quel est son pluriel ?",
-      "explain": "**lo** devient **gli** au pluriel : **gli zaini**, **gli sbagli**."
+      "hint": "Le corps humain a des pluriels irréguliers.",
+      "explain": "**la mano** devient **le mani**, et l'article reste féminin."
     },
     {
-      "q": "Pluriel de « l'aeroporto » : ___ aeroporti",
+      "q": "Quel est le pluriel de **il braccio** ?",
       "choices": [
-        "gli",
-        "i",
-        "le"
-      ],
-      "answer": 0,
-      "hint": "C'est un mot **masculin** qui commence par une **voyelle**.",
-      "explain": "Masculin devant une voyelle : **gli** au pluriel → **gli aeroporti**, **gli alberghi**."
-    },
-    {
-      "q": "Pluriel de « la spiaggia » (la plage) : ___ spiagge",
-      "choices": [
-        "gli",
-        "le",
-        "i"
+        "i bracci",
+        "le braccia",
+        "gli braccie",
+        "le bracce"
       ],
       "answer": 1,
-      "hint": "Au féminin, il n'y a qu'**un seul** article pluriel.",
-      "explain": "Tout le féminin pluriel prend **le** : **le spiagge**, **le valigie**, **le isole**."
+      "hint": "Ce mot change même d'article au pluriel.",
+      "explain": "Irrégulier : **il braccio → le braccia**."
+    },
+    {
+      "q": "Quel est le pluriel de **tedesco** ?",
+      "choices": [
+        "tedesci",
+        "tedeschi",
+        "tedescoi",
+        "tedeske"
+      ],
+      "answer": 1,
+      "hint": "Avec -co, on ajoute une lettre pour garder le son dur.",
+      "explain": "Les mots en -co prennent un **h** : tedeschi."
+    },
+    {
+      "q": "Quel est le pluriel de **una torre alta** ?",
+      "choices": [
+        "due torri alta",
+        "due torre alte",
+        "due torri alte",
+        "due torri alti"
+      ],
+      "answer": 2,
+      "hint": "Le nom et l'adjectif s'accordent tous les deux.",
+      "explain": "Bien joué ! L'adjectif s'accorde : **due torri alte**."
     }
   ]
 }

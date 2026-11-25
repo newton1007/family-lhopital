@@ -1,9 +1,11 @@
+---
+---
 <!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Italien – Le pluriel des noms en voyage</title>
+<title>QCM</title>
 <style>
 :root{
   --bg:#e9edf5; --card:#ffffff; --text:#1c2550; --muted:#4d5878; --border:#cdd5e8;
@@ -85,15 +87,10 @@ h1{font-size:1.05em;margin:0;font-weight:700}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 @media (max-width:520px){.qrow{flex-direction:column;gap:10px}.segments{gap:4px}}
 </style>
-<style id="theme-famille">
-:root{--bg:#f8f9fa;--text:#1a1a1a;--muted:#555;--border:#e2e8f0;--seg:#ecd9d6;--seg-done:#c0392b;--gold:#b8860b;--gold-soft:#fdf6d8;--letter-bg:#fbe9e7;--letter:#c0392b;--accent:#c0392b}
-@media (prefers-color-scheme:dark){:root{--bg:#1a1a1a;--card:#262626;--text:#f5f5f5;--muted:#bdbdbd;--border:#3a3a3a;--seg:#3a3a3a;--seg-done:#e06050;--gold:#f1c40f;--gold-soft:#3a3315;--letter-bg:#3d2320;--letter:#ff8a7a;--accent:#ff8a7a}}
-body::before{content:"";display:block;height:8px;background:linear-gradient(90deg,#1a1a1a,#c0392b,#f1c40f)}
-</style>
+    {% include theme-head.html racine="../" %}
 </head>
 <body>
 <main>
-  <p style="margin:0 0 12px"><a href="index.html" style="color:inherit;font-weight:600">← Sommaire des QCM</a></p>
   <header>
     <div>
       <h1 id="title"></h1>
@@ -138,141 +135,129 @@ body::before{content:"";display:block;height:8px;background:linear-gradient(90de
 
 <script id="quiz-data" type="application/json">
 {
-  "title": "Italien – Le pluriel des noms en voyage",
-  "subtitle": "-o → -i • -a → -e • -e → -i • Les pièges du voyageur",
+  "title": "L'article défini en italien",
+  "subtitle": "Italien – Articles et pluriel – Version 1",
   "accessible": true,
   "questions": [
     {
-      "q": "Une valise, deux valises : « la valigia » → « le ___ »",
+      "q": "Quel article devant **bambino** ?",
       "choices": [
-        "valigie",
-        "valigii",
-        "valigia"
+        "il",
+        "lo",
+        "la",
+        "l'"
       ],
       "answer": 0,
-      "hint": "Féminin en **-a** : quelle voyelle au pluriel ?",
-      "explain": "Féminin : **-a → -e** → **le valigie**, comme **la pera → le pere**."
+      "hint": "Bambino est masculin et commence par une consonne simple.",
+      "explain": "On dit **il bambino** : il + consonne au masculin."
     },
     {
-      "q": "Un billet, deux billets : « il biglietto » → « i ___ »",
+      "q": "Quel article devant **sbaglio** (erreur) ?",
       "choices": [
-        "biglietta",
-        "biglietti",
-        "bigliette"
+        "il",
+        "lo",
+        "l'",
+        "la"
       ],
       "answer": 1,
-      "hint": "Masculin en **-o** : quelle voyelle au pluriel ?",
-      "explain": "Masculin : **-o → -i** → **i biglietti**, comme **il sogno → i sogni**."
+      "hint": "Regarde les deux premières lettres : s + consonne.",
+      "explain": "On dit **lo sbaglio** : lo s'emploie devant s + consonne."
     },
     {
-      "q": "Une gare, deux gares : « la stazione » → « le ___ »",
+      "q": "Quel article devant **zaino** (sac à dos) ?",
       "choices": [
-        "stazione",
-        "stazionie",
-        "stazioni"
+        "il",
+        "la",
+        "lo",
+        "i"
       ],
       "answer": 2,
-      "hint": "Le mot finit par **-e**. Masculin ou féminin, c'est la même règle.",
-      "explain": "Les mots en **-e** font **-i** : **le stazioni**, **le chiavi**, **i ponti**."
+      "hint": "Certaines lettres demandent un article spécial : z, x, y…",
+      "explain": "On dit **lo zaino** : lo s'emploie devant z."
     },
     {
-      "q": "Un problème de bagage : « il problema » → « i ___ »",
+      "q": "Devant une **voyelle**, l'article singulier devient…",
       "choices": [
-        "probleme",
-        "problemi",
-        "problema"
+        "lo",
+        "l'",
+        "il",
+        "la"
       ],
       "answer": 1,
-      "hint": "**Problema** finit par -a mais il est **masculin** (il).",
-      "explain": "Masculin en **-a → -i** : **i problemi**. Seuls les féminins en -a font -e."
+      "hint": "Les deux voyelles se rencontrent : on enlève une lettre.",
+      "explain": "Devant une voyelle, on écrit **l'**, au masculin comme au féminin."
     },
     {
-      "q": "Au cinéma en Italie : « un film » → « due ___ »",
+      "q": "Quel est l'article **féminin** singulier devant une consonne ?",
       "choices": [
-        "filmi",
-        "filme",
-        "film"
+        "le",
+        "il",
+        "la",
+        "lo"
       ],
       "answer": 2,
-      "hint": "**Film** est un mot étranger qui finit par une **consonne**.",
-      "explain": "Les mots étrangers et ceux finis par une consonne sont **invariables** : **due film**."
+      "hint": "Il se termine par -a, comme beaucoup de mots féminins.",
+      "explain": "Au féminin singulier, on dit **la** devant une consonne."
     },
     {
-      "q": "Rome, Florence, Venise… « una città » → « due ___ »",
+      "q": "Quel est le pluriel de **il bambino** ?",
       "choices": [
-        "città",
-        "citte",
-        "citti"
+        "gli bambini",
+        "i bambini",
+        "le bambini",
+        "lo bambini"
+      ],
+      "answer": 1,
+      "hint": "Il devient un article très court au pluriel.",
+      "explain": "**il** devient **i** au pluriel : i bambini."
+    },
+    {
+      "q": "Quel est le pluriel de **lo sbaglio** ?",
+      "choices": [
+        "i sbagli",
+        "le sbagli",
+        "gli sbagli",
+        "lo sbagli"
+      ],
+      "answer": 2,
+      "hint": "Lo et son pluriel vont ensemble dans les mêmes cas.",
+      "explain": "**lo** devient **gli** au pluriel : gli sbagli."
+    },
+    {
+      "q": "Quel est le pluriel de **lo zaino** ?",
+      "choices": [
+        "gli zaini",
+        "i zaini",
+        "le zaini",
+        "li zaini"
       ],
       "answer": 0,
-      "hint": "Regarde l'**accent** sur la dernière lettre.",
-      "explain": "Les mots **accentués** à la fin ne changent pas : **due città**. Pareil pour **il caffè → i caffè**."
+      "hint": "Devant z, on garde la même famille d'articles qu'au singulier.",
+      "explain": "On dit **gli zaini** : lo devient gli."
     },
     {
-      "q": "Location de scooter : « una moto » → « due ___ »",
+      "q": "Quel est l'article **féminin pluriel** ?",
       "choices": [
-        "mote",
-        "moto",
-        "moti"
+        "la",
+        "i",
+        "gli",
+        "le"
+      ],
+      "answer": 3,
+      "hint": "Il ressemble à un article français.",
+      "explain": "Au féminin pluriel, on dit **le**."
+    },
+    {
+      "q": "Quel est le pluriel de **lo xilofono** ?",
+      "choices": [
+        "i xilofoni",
+        "gli xilofoni",
+        "le xilofoni",
+        "lo xilofoni"
       ],
       "answer": 1,
-      "hint": "**Moto** est un mot **abrégé** (motocicletta).",
-      "explain": "Les mots abrégés sont **invariables** : **due moto**, **due foto**, **due cinema**."
-    },
-    {
-      "q": "Le guide touristique : « un uomo » → « due ___ »",
-      "choices": [
-        "uomi",
-        "uome",
-        "uomini"
-      ],
-      "answer": 2,
-      "hint": "C'est un pluriel **irrégulier**, il faut le retenir par cœur.",
-      "explain": "**Uomo** est irrégulier : **un uomo → due uomini**."
-    },
-    {
-      "q": "On fait coucou à l'avion ! « la mano » → « le ___ »",
-      "choices": [
-        "mani",
-        "mane",
-        "mano"
-      ],
-      "answer": 0,
-      "hint": "**Mano** est féminin et irrégulier.",
-      "explain": "Parties du corps irrégulières : **la mano → le mani**, **il braccio → le braccia**, **il dito → le dita**."
-    },
-    {
-      "q": "Des touristes allemands : « tedesco » → « ___ »",
-      "choices": [
-        "tedesci",
-        "tedeschi",
-        "tedescoi"
-      ],
-      "answer": 1,
-      "hint": "Les mots en **-co** ajoutent un **h** pour garder le son « k ».",
-      "explain": "**-co → -chi**, **-go → -ghi** : **tedeschi**, **lunghi**. On garde le son dur."
-    },
-    {
-      "q": "En vacances avec… « un amico » → « due ___ »",
-      "choices": [
-        "amichi",
-        "amici",
-        "amice"
-      ],
-      "answer": 1,
-      "hint": "Attention, c'est l'**exception** de la règle -co → -chi.",
-      "explain": "**Amico** est une exception : **due amici** (pas de h)."
-    },
-    {
-      "q": "Souvenir de Pise : « una torre alta » → « due ___ »",
-      "choices": [
-        "torre alte",
-        "torri alti",
-        "torri alte"
-      ],
-      "answer": 2,
-      "hint": "**Torre** finit par **-e**. **Alta** est féminin en **-a**.",
-      "explain": "**torre → torri** (-e → -i) et **alta → alte** (féminin -a → -e) : **due torri alte**."
+      "hint": "Xilofono commence par x, comme un cas de lo.",
+      "explain": "Bravo si tu as trouvé ! **lo xilofono** devient **gli xilofoni**."
     }
   ]
 }

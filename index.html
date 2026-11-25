@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,37 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Famille Lhopital | Sud, Rugby &amp; Voyages</title>
     <meta name="description" content="La famille Lhopital : le soleil du Sud, le cœur Rouge &amp; Noir et une valise toujours prête. Carnet de voyage, traditions de Noël et QCM de révision.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --rouge: #c0392b;
-            --rouge-fonce: #962d22;
-            --noir: #1a1a1a;
-            --soleil: #f1c40f;
-            --mer: #0e5e78;
-            --sapin: #1e6b45;
-            --bg: #f4f1ea;
-            --surface: #ffffff;
-            --text: #1f2326;
-            --muted: #5b6166;
-            --border: #ddd6c8;
-            --titre: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
-            --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #141414;
-                --surface: #1f1f1f;
-                --text: #f2efe8;
-                --muted: #b5b0a6;
-                --border: #353330;
-                --mer: #4fb3d1;
-                --sapin: #5fc08a;
-            }
-        }
-
         * { box-sizing: border-box; }
         body {
             margin: 0;
@@ -44,9 +16,7 @@
             color: var(--text);
             line-height: 1.6;
         }
-        h1, h2, h3 { font-family: var(--titre); line-height: 1.15; }
         a { color: inherit; }
-        :focus-visible { outline: 3px solid var(--soleil); outline-offset: 3px; }
 
         .skip { position: absolute; left: -9999px; }
         .skip:focus { left: 16px; top: 16px; z-index: 20; background: var(--soleil); color: var(--noir); padding: 8px 14px; border-radius: 8px; }
@@ -58,14 +28,6 @@
             color: #fff;
             padding: 56px 20px 96px;
             overflow: hidden;
-        }
-        .guirlande {
-            position: absolute; inset: 0 0 auto 0; height: 26px;
-            background:
-                radial-gradient(circle at 12px 16px, var(--soleil) 5px, transparent 6px) 0 0 / 72px 26px,
-                radial-gradient(circle at 36px 18px, #e74c3c 5px, transparent 6px) 0 0 / 72px 26px,
-                radial-gradient(circle at 60px 16px, #2ecc71 5px, transparent 6px) 0 0 / 72px 26px;
-            border-top: 2px solid #3a3a3a;
         }
         .hero-inner {
             max-width: 1040px; margin: 0 auto;
@@ -175,23 +137,6 @@
         footer { text-align: center; padding: 32px 20px 48px; color: var(--muted); }
         footer p { margin: 0; }
 
-        /* ---------- Neige ---------- */
-        .neige { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 10; }
-        .flocon {
-            position: absolute; top: -20px; color: #fff;
-            text-shadow: 0 0 3px rgba(0,0,0,0.25);
-            animation: tombe linear infinite, derive ease-in-out infinite alternate;
-            will-change: transform;
-        }
-        @keyframes tombe { to { top: 105vh; } }
-        @keyframes derive { from { transform: translateX(-14px); } to { transform: translateX(14px); } }
-        .stop-neige {
-            position: fixed; right: 16px; bottom: 16px; z-index: 11;
-            background: var(--surface); color: var(--text); border: 2px solid var(--border);
-            border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 0.85rem; cursor: pointer;
-        }
-        .stop-neige:hover { border-color: var(--rouge); }
-
         @media (max-width: 760px) {
             .hero-inner, .carnet, .intro { grid-template-columns: 1fr; }
             .boarding { transform: none; grid-template-columns: 1fr 92px; }
@@ -205,8 +150,9 @@
             .btn { transition: none; }
         }
     </style>
+    {% include theme-head.html racine="" %}
 </head>
-<body>
+<body class="famille">
     <a class="skip" href="#contenu">Aller au contenu</a>
 
     <header class="hero">
@@ -354,31 +300,6 @@
             elJours.textContent = 'J-' + jours;
             elLabel.textContent = jours === 1 ? 'demain, c’est Noël' : 'avant Noël';
         }
-
-        // Neige (désactivée si l'utilisateur préfère moins d'animations)
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var zone = document.getElementById('neige');
-        var bouton = document.getElementById('stop-neige');
-        var symboles = ['❄', '❅', '•', '❆', '•'];
-        var nb = window.innerWidth < 600 ? 28 : 55;
-        for (var i = 0; i < nb; i++) {
-            var f = document.createElement('span');
-            f.className = 'flocon';
-            f.textContent = symboles[i % symboles.length];
-            var chute = 8 + Math.random() * 10;
-            f.style.left = (Math.random() * 100) + 'vw';
-            f.style.fontSize = (8 + Math.random() * 16) + 'px';
-            f.style.opacity = (0.5 + Math.random() * 0.5).toFixed(2);
-            f.style.animationDuration = chute + 's, ' + (2 + Math.random() * 3) + 's';
-            f.style.animationDelay = (-Math.random() * chute) + 's, 0s';
-            zone.appendChild(f);
-        }
-        bouton.hidden = false;
-        bouton.addEventListener('click', function () {
-            var arret = !zone.hidden;
-            zone.hidden = arret;
-            bouton.textContent = arret ? '❄ Relancer la neige' : '❄ Arrêter la neige';
-        });
     })();
     </script>
 </body>

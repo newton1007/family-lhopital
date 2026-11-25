@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,6 +45,8 @@
             color: white;
             padding: 50px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .container {
@@ -106,7 +110,7 @@
         }
 
         .qcm-list a:hover {
-            background: #fff;
+            background: var(--surface);
             border-color: var(--rouge);
             color: var(--rouge);
             transform: translateX(5px);
@@ -136,7 +140,7 @@
         .travel { margin: 0; font-size: 0.95rem; opacity: 0.9; }
 
         .empty-msg {
-            color: #a0aec0;
+            color: var(--muted);
             font-style: italic;
             font-size: 0.9em;
             margin: 10px 0;
@@ -149,8 +153,9 @@
             margin-top: 50px;
         }
     </style>
+    {% include theme-head.html racine="../" %}
 </head>
-<body>
+<body class="famille">
 
     <div class="header-nav">
         <span>🔴⚫ Famille Lhopital</span>
@@ -158,6 +163,7 @@
     </div>
 
     <header class="hero">
+        <div class="guirlande" aria-hidden="true"></div>
         <h1>Espace QCM & Révisions</h1>
         <p>Retrouvez ici tous vos quiz classés par matière et par thème</p>
         <p class="travel">✈️ Clique sur un thème pour afficher ses QCM • Buon viaggio !</p>
@@ -187,15 +193,15 @@
                 </details>
             </div>
 
-            <!-- Italien -->
+            <!-- ITALIEN -->
             <div class="subject-card">
                 <h3>🇮🇹 Italien</h3>
                 <details class="theme">
-                    <summary>🧳 Articles &amp; pluriel (en voyage) <span class="count">3 QCM</span></summary>
+                    <summary>📚 Articles &amp; pluriel <span class="count">3 QCM</span></summary>
                     <ul class="qcm-list">
-                        <li><a href="italien_articles_pluriel_v1_article_defini.html">L'article défini <span class="tag">Quiz 1</span></a></li>
-                        <li><a href="italien_articles_pluriel_v2_article_indefini.html">L'article indéfini <span class="tag">Quiz 2</span></a></li>
-                        <li><a href="italien_articles_pluriel_v3_pluriel_noms.html">Le pluriel des noms <span class="tag">Quiz 3</span></a></li>
+                        <li><a href="italien_pluriel_v1_article_defini.html">L'article défini <span class="tag">Quiz 1</span></a></li>
+                        <li><a href="italien_pluriel_v2_article_indefini.html">L'article indéfini <span class="tag">Quiz 2</span></a></li>
+                        <li><a href="italien_pluriel_v3_noms_adjectifs.html">Pluriel des noms &amp; adjectifs <span class="tag">Quiz 3</span></a></li>
                     </ul>
                 </details>
             </div>
