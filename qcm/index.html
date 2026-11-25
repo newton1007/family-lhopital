@@ -122,6 +122,19 @@
             text-transform: uppercase;
         }
 
+
+        details.theme { margin-bottom: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); overflow: hidden; }
+        details.theme > summary { cursor: pointer; list-style: none; padding: 12px 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        details.theme > summary::-webkit-details-marker { display: none; }
+        details.theme > summary::after { content: '▸'; margin-left: auto; color: var(--rouge); transition: transform 0.2s; }
+        details.theme[open] > summary::after { transform: rotate(90deg); }
+        details.theme > summary:hover { color: var(--rouge); }
+        details.theme > summary:focus-visible { outline: 3px solid var(--soleil); outline-offset: -3px; }
+        details.theme .count { font-size: 0.75em; font-weight: 600; background: var(--soleil); color: var(--noir); padding: 1px 8px; border-radius: 999px; }
+        details.theme .qcm-list { padding: 0 12px 4px; }
+        details.theme .qcm-list a { background: var(--surface); }
+        .travel { margin: 0; font-size: 0.95rem; opacity: 0.9; }
+
         .empty-msg {
             color: #a0aec0;
             font-style: italic;
@@ -146,7 +159,8 @@
 
     <header class="hero">
         <h1>Espace QCM & Révisions</h1>
-        <p>Retrouvez ici tous vos quiz classés par matière</p>
+        <p>Retrouvez ici tous vos quiz classés par matière et par thème</p>
+        <p class="travel">✈️ Clique sur un thème pour afficher ses QCM • Buon viaggio !</p>
     </header>
 
     <div class="container">
@@ -155,38 +169,35 @@
             <!-- ANGLAIS -->
             <div class="subject-card">
                 <h3>🇬🇧 Anglais</h3>
-                <ul class="qcm-list">
-                    <li>
-                        <a href="anglais_canada_australia_v1_faits.html">
-                            Canada &amp; Australia : Les faits <span class="tag">Quiz 1</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="anglais_canada_australia_v2_saisons.html">
-                            Canada &amp; Australia : Les saisons <span class="tag">Quiz 2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="anglais_canada_australia_v3_vocabulaire.html">
-                            Canada &amp; Australia : Vocabulaire <span class="tag">Quiz 3</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="anglais_australia_v1_geographie.html">
-                            Australia : Géographie &amp; villes <span class="tag">Carte 1</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="anglais_australia_v2_nature.html">
-                            Australia : Nature &amp; animaux <span class="tag">Carte 2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="anglais_australia_v3_vie_quotidienne.html">
-                            Australia : Vie quotidienne <span class="tag">Carte 3</span>
-                        </a>
-                    </li>
-                </ul>
+                <details class="theme">
+                    <summary>🍁 Canada &amp; Australia <span class="count">3 QCM</span></summary>
+                    <ul class="qcm-list">
+                        <li><a href="anglais_canada_australia_v1_faits.html">Les faits <span class="tag">Quiz 1</span></a></li>
+                        <li><a href="anglais_canada_australia_v2_saisons.html">Les saisons <span class="tag">Quiz 2</span></a></li>
+                        <li><a href="anglais_canada_australia_v3_vocabulaire.html">Vocabulaire <span class="tag">Quiz 3</span></a></li>
+                    </ul>
+                </details>
+                <details class="theme">
+                    <summary>🦘 Australia (cartes) <span class="count">3 QCM</span></summary>
+                    <ul class="qcm-list">
+                        <li><a href="anglais_australia_v1_geographie.html">Géographie &amp; villes <span class="tag">Carte 1</span></a></li>
+                        <li><a href="anglais_australia_v2_nature.html">Nature &amp; animaux <span class="tag">Carte 2</span></a></li>
+                        <li><a href="anglais_australia_v3_vie_quotidienne.html">Vie quotidienne <span class="tag">Carte 3</span></a></li>
+                    </ul>
+                </details>
+            </div>
+
+            <!-- Italien -->
+            <div class="subject-card">
+                <h3>🇮🇹 Italien</h3>
+                <details class="theme">
+                    <summary>🧳 Articles &amp; pluriel (en voyage) <span class="count">3 QCM</span></summary>
+                    <ul class="qcm-list">
+                        <li><a href="italien_articles_pluriel_v1_article_defini.html">L'article défini <span class="tag">Quiz 1</span></a></li>
+                        <li><a href="italien_articles_pluriel_v2_article_indefini.html">L'article indéfini <span class="tag">Quiz 2</span></a></li>
+                        <li><a href="italien_articles_pluriel_v3_pluriel_noms.html">Le pluriel des noms <span class="tag">Quiz 3</span></a></li>
+                    </ul>
+                </details>
             </div>
 
             <!-- Histoire - Géographie -->
@@ -216,23 +227,14 @@
             <!-- Musique -->
             <div class="subject-card">
                 <h3>🎵 Musique</h3>
-                <ul class="qcm-list">
-                    <li>
-                        <a href="musique_city_life_v1_compositeur.html">
-                            City Life : Le compositeur <span class="tag">Quiz 1</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="musique_city_life_v2_instruments.html">
-                            City Life : Les instruments <span class="tag">Quiz 2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="musique_city_life_v3_bruits_analyse.html">
-                            City Life : Bruits &amp; analyse <span class="tag">Quiz 3</span>
-                        </a>
-                    </li>
-                </ul>
+                <details class="theme">
+                    <summary>🏙️ City Life <span class="count">3 QCM</span></summary>
+                    <ul class="qcm-list">
+                        <li><a href="musique_city_life_v1_compositeur.html">Le compositeur <span class="tag">Quiz 1</span></a></li>
+                        <li><a href="musique_city_life_v2_instruments.html">Les instruments <span class="tag">Quiz 2</span></a></li>
+                        <li><a href="musique_city_life_v3_bruits_analyse.html">Bruits &amp; analyse <span class="tag">Quiz 3</span></a></li>
+                    </ul>
+                </details>
             </div>
         </div>
     </div>

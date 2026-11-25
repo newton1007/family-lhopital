@@ -3,99 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Famille Lhopital | Sud & Rugby</title>
+    <title>Famille Lhopital | Sud, Rugby &amp; Voyages</title>
+    <meta name="description" content="La famille Lhopital : le soleil du Sud, le cœur Rouge &amp; Noir et une valise toujours prête. Carnet de voyage, traditions de Noël et QCM de révision.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Palette RCT & Sud */
             --rouge: #c0392b;
+            --rouge-fonce: #962d22;
             --noir: #1a1a1a;
             --soleil: #f1c40f;
-            --ciel: #3498db;
-            --bg: #f8f9fa;
+            --mer: #0e5e78;
+            --sapin: #1e6b45;
+            --bg: #f4f1ea;
             --surface: #ffffff;
-            --text: #2d3436;
+            --text: #1f2326;
+            --muted: #5b6166;
+            --border: #ddd6c8;
+            --titre: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #141414;
+                --surface: #1f1f1f;
+                --text: #f2efe8;
+                --muted: #b5b0a6;
+                --border: #353330;
+                --mer: #4fb3d1;
+                --sapin: #5fc08a;
+            }
         }
 
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: var(--bg);
+            background: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
+        h1, h2, h3 { font-family: var(--titre); line-height: 1.15; }
+        a { color: inherit; }
+        :focus-visible { outline: 3px solid var(--soleil); outline-offset: 3px; }
 
+        .skip { position: absolute; left: -9999px; }
+        .skip:focus { left: 16px; top: 16px; z-index: 20; background: var(--soleil); color: var(--noir); padding: 8px 14px; border-radius: 8px; }
+
+        /* ---------- Hero ---------- */
         .hero {
-            background: linear-gradient(135deg, var(--noir), var(--rouge));
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            clip-path: ellipse(150% 100% at 50% 0%);
+            position: relative;
+            background: linear-gradient(160deg, var(--noir) 0%, #2b1310 45%, var(--rouge) 100%);
+            color: #fff;
+            padding: 56px 20px 96px;
+            overflow: hidden;
         }
-
+        .guirlande {
+            position: absolute; inset: 0 0 auto 0; height: 26px;
+            background:
+                radial-gradient(circle at 12px 16px, var(--soleil) 5px, transparent 6px) 0 0 / 72px 26px,
+                radial-gradient(circle at 36px 18px, #e74c3c 5px, transparent 6px) 0 0 / 72px 26px,
+                radial-gradient(circle at 60px 16px, #2ecc71 5px, transparent 6px) 0 0 / 72px 26px;
+            border-top: 2px solid #3a3a3a;
+        }
+        .hero-inner {
+            max-width: 1040px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+        }
         .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 800;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
         }
+        .hero h1 span { color: var(--soleil); }
+        .hero .devise { font-size: 1.15rem; margin: 0 0 8px; max-width: 34ch; }
+        .hero .noel { margin: 18px 0 0; font-family: var(--mono); font-size: 0.95rem; color: var(--soleil); }
 
-        .container {
-            max-width: 900px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
+        /* Carte d'embarquement : élément signature */
+        .boarding {
+            background: #fffdf7;
+            color: var(--noir);
+            border-radius: 18px;
+            display: grid;
+            grid-template-columns: 1fr 110px;
+            box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+            transform: rotate(-2deg);
+            font-family: var(--mono);
         }
-
-        .card {
-            background: var(--surface);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
+        .boarding .main { padding: 20px 22px; border-right: 2px dashed #c9c1ae; }
+        .boarding .compagnie { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--rouge); font-weight: 700; margin: 0 0 14px; }
+        .boarding .trajet { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; }
+        .boarding .code { font-family: var(--titre); font-size: 2.6rem; font-weight: 800; line-height: 1; }
+        .boarding .ville { display: block; font-size: 0.72rem; color: #6b6458; }
+        .boarding .avion { flex: 1; text-align: center; color: var(--rouge); font-size: 1.4rem; border-bottom: 2px dotted #c9c1ae; }
+        .boarding dl { display: grid; grid-template-columns: repeat(3, auto); gap: 6px 18px; margin: 0; font-size: 0.85rem; }
+        .boarding dt { font-size: 0.68rem; color: #6b6458; }
+        .boarding dd { margin: 0; font-weight: 700; }
+        .boarding .talon { padding: 20px 12px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; font-size: 0.72rem; }
+        .boarding .tampon {
+            border: 3px solid var(--sapin); color: var(--sapin);
+            border-radius: 50%; width: 82px; height: 82px;
+            display: grid; place-items: center;
+            font-weight: 700; font-size: 0.7rem; line-height: 1.2;
+            transform: rotate(12deg);
         }
+        .boarding .jours { font-family: var(--titre); font-size: 1.8rem; font-weight: 800; color: var(--rouge); display: block; line-height: 1; }
 
-        .btn-sommaire {
-            display: inline-block;
-            background: var(--rouge);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.2s, background 0.2s;
-            border: 2px solid var(--noir);
+        /* ---------- Contenu ---------- */
+        main { max-width: 1040px; margin: -48px auto 0; padding: 0 20px 40px; position: relative; }
+        section { margin: 0 0 56px; }
+        .intro {
+            background: var(--surface); border-radius: 20px; padding: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
         }
-
-        .btn-sommaire:hover {
-            transform: scale(1.05);
-            background: #a93226;
+        .intro h2 { margin: 0 0 6px; font-size: 1.7rem; }
+        .intro p { margin: 0; color: var(--muted); }
+        .btn {
+            display: inline-block; background: var(--rouge); color: #fff;
+            padding: 14px 26px; border-radius: 999px; text-decoration: none;
+            font-weight: 700; border: 2px solid var(--noir);
+            transition: background 0.2s;
         }
+        .btn:hover { background: var(--rouge-fonce); }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text);
+        .titre-section { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 6px; }
+        .chapo { margin: 0 0 24px; color: var(--muted); max-width: 60ch; }
+
+        /* Escales */
+        .escales { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .escale {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+            padding: 22px; display: flex; flex-direction: column; gap: 10px;
+        }
+        .escale header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+        .escale h3 { margin: 0; font-size: 1.35rem; }
+        .escale .iata { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+        .escale p { margin: 0; }
+        .escale .mots { font-family: var(--mono); font-size: 0.85rem; background: var(--bg); border-radius: 8px; padding: 8px 10px; }
+        .escale .noel-la-bas { border-left: 4px solid var(--sapin); padding-left: 12px; font-size: 0.95rem; }
+        .escale .noel-la-bas strong { color: var(--sapin); }
+        .escale .voeux { font-family: var(--titre); font-weight: 800; font-size: 1.2rem; color: var(--rouge); margin-top: auto; }
+        @media (prefers-color-scheme: dark) { .escale .voeux { color: #ff8a7a; } }
+
+        /* Carnet du voyageur */
+        .carnet { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; align-items: start; }
+        table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+        caption { text-align: left; font-family: var(--titre); font-weight: 800; font-size: 1.15rem; padding: 0 0 10px; }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        thead th { background: var(--noir); color: #fff; font-size: 0.85rem; }
+        tbody th { font-weight: 600; }
+        tbody tr:last-child > * { border-bottom: 0; }
+        td { font-family: var(--mono); font-size: 0.9rem; }
+
+        .horloges { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+        .horloges h3 { margin: 0 0 4px; font-size: 1.15rem; }
+        .horloges > p { margin: 0 0 14px; color: var(--muted); font-size: 0.92rem; }
+        .horloges ul { list-style: none; margin: 0; padding: 0; }
+        .horloges li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--border); }
+        .horloges li:last-child { border-bottom: 0; }
+        .horloges time { font-family: var(--mono); font-weight: 700; }
+        .astuce { margin: 14px 0 0; font-size: 0.92rem; }
+
+        .valise { background: var(--noir); color: #fff; border-radius: 20px; padding: 28px; }
+        .valise h2 { margin: 0 0 14px; color: var(--soleil); }
+        .valise ul { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 24px; }
+        .valise li::before { content: "☐ "; color: var(--soleil); font-family: var(--mono); }
+
+        footer { text-align: center; padding: 32px 20px 48px; color: var(--muted); }
+        footer p { margin: 0; }
+
+        /* ---------- Neige ---------- */
+        .neige { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 10; }
+        .flocon {
+            position: absolute; top: -20px; color: #fff;
+            text-shadow: 0 0 3px rgba(0,0,0,0.25);
+            animation: tombe linear infinite, derive ease-in-out infinite alternate;
+            will-change: transform;
+        }
+        @keyframes tombe { to { top: 105vh; } }
+        @keyframes derive { from { transform: translateX(-14px); } to { transform: translateX(14px); } }
+        .stop-neige {
+            position: fixed; right: 16px; bottom: 16px; z-index: 11;
+            background: var(--surface); color: var(--text); border: 2px solid var(--border);
+            border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 0.85rem; cursor: pointer;
+        }
+        .stop-neige:hover { border-color: var(--rouge); }
+
+        @media (max-width: 760px) {
+            .hero-inner, .carnet, .intro { grid-template-columns: 1fr; }
+            .boarding { transform: none; grid-template-columns: 1fr 92px; }
+            .boarding .code { font-size: 2rem; }
+            .boarding dl { grid-template-columns: repeat(2, auto); }
+            .intro { padding: 24px; }
+            table { font-size: 0.9rem; }
+            th, td { padding: 8px 10px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .btn { transition: none; }
         }
     </style>
 </head>
 <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
 
     <header class="hero">
-        <h1>Famille Lhopital</h1>
-        <p>Le soleil du Sud, le cœur Rouge & Noir</p>
+        <div class="guirlande" aria-hidden="true"></div>
+        <div class="hero-inner">
+            <div>
+                <h1>Famille <span>Lhopital</span></h1>
+                <p class="devise">Le soleil du Sud, le cœur Rouge &amp; Noir, et une valise toujours prête au pied du sapin.</p>
+                <p class="noel" id="compte-noel">Joyeux Noël · Buon Natale · Merry Christmas</p>
+            </div>
+
+            <div class="boarding" role="group" aria-label="Carte d'embarquement du vol de Noël, de Toulon vers le Pôle Nord">
+                <div class="main">
+                    <p class="compagnie"><span>AIR LHOPITAL</span><span>Vol RCT 2512</span></p>
+                    <div class="trajet">
+                        <div><span class="code">TLN</span><span class="ville">Toulon</span></div>
+                        <div class="avion" aria-hidden="true">✈</div>
+                        <div><span class="code">NPL</span><span class="ville">Pôle Nord</span></div>
+                    </div>
+                    <dl>
+                        <div><dt>Passagers</dt><dd>Toute la famille</dd></div>
+                        <div><dt>Date</dt><dd>24 DÉC</dd></div>
+                        <div><dt>Porte</dt><dd>Sapin</dd></div>
+                        <div><dt>Siège</dt><dd>Hublot</dd></div>
+                        <div><dt>Bagages</dt><dd>Cadeaux</dd></div>
+                        <div><dt>Classe</dt><dd>Rouge &amp; Noir</dd></div>
+                    </dl>
+                </div>
+                <div class="talon">
+                    <div class="tampon" aria-hidden="true">BON<br>VOYAGE<br>★</div>
+                    <p><span class="jours" id="jours">—</span><span id="jours-label">jours avant Noël</span></p>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="card">
-            <h2>Bienvenue chez nous !</h2>
-            <p>Ici, entre deux matchs de rugby et le chant des cigales, on apprend en s'amusant. Retrouvez tous nos QCM de révision ci-dessous.</p>
-            <br>
-            <a href="qcm/index.html" class="btn-sommaire">Accéder à l'Espace QCM</a>
-        </div>
-    </div>
+    <main id="contenu">
+        <section class="intro" aria-labelledby="titre-intro">
+            <div>
+                <h2 id="titre-intro">Bienvenue à bord !</h2>
+                <p>Entre deux matchs du RCT et le chant des cigales, on prépare nos prochains voyages… et on révise en s'amusant.</p>
+            </div>
+            <a href="qcm/index.html" class="btn">Ouvrir l'espace QCM</a>
+        </section>
+
+        <section aria-labelledby="titre-escales">
+            <h2 class="titre-section" id="titre-escales">Nos escales de Noël</h2>
+            <p class="chapo">Trois pays qu'on étudie à la maison, et la façon dont on y fête Noël.</p>
+            <div class="escales">
+                <article class="escale">
+                    <header><h3>Italie</h3><span class="iata">FCO · Rome</span></header>
+                    <p>À 1 h 30 d'avion de Toulon. Capitale : Rome. On y parle italien, cousin du provençal.</p>
+                    <p class="mots" lang="it">il treno · la valigia · il biglietto</p>
+                    <p class="noel-la-bas"><strong>Noël là-bas :</strong> le 6 janvier, la sorcière <em lang="it">Befana</em> passe sur son balai. Elle apporte des bonbons aux enfants sages… et du charbon aux autres ! On mange le <em lang="it">panettone</em>, né à Milan.</p>
+                    <p class="voeux" lang="it">Buon Natale !</p>
+                </article>
+
+                <article class="escale">
+                    <header><h3>Canada</h3><span class="iata">YUL · Montréal</span></header>
+                    <p>Deuxième plus grand pays du monde. On y parle anglais et français. À Noël, il peut faire −20 °C.</p>
+                    <p class="mots" lang="en">snow · maple syrup · moose</p>
+                    <p class="noel-la-bas"><strong>Noël là-bas :</strong> au Québec, on fait le réveillon avec une tourtière. Et le Père Noël a une adresse officielle : son code postal est <strong>H0H 0H0</strong>.</p>
+                    <p class="voeux">Joyeux Noël / <span lang="en">Merry Christmas!</span></p>
+                </article>
+
+                <article class="escale">
+                    <header><h3>Australie</h3><span class="iata">SYD · Sydney</span></header>
+                    <p>Un pays-continent, de l'autre côté de la Terre. Là-bas, les saisons sont inversées.</p>
+                    <p class="mots" lang="en">kangaroo · beach · barbecue</p>
+                    <p class="noel-la-bas"><strong>Noël là-bas :</strong> c'est l'été ! On fête Noël à la plage, avec un barbecue, et on chante à la bougie pendant les <em lang="en">Carols by Candlelight</em>.</p>
+                    <p class="voeux" lang="en">Merry Christmas, mate!</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="titre-carnet">
+            <h2 class="titre-section" id="titre-carnet">Le carnet du voyageur</h2>
+            <p class="chapo">Les mots à connaître avant de partir, et une question de géographie pour le réveillon.</p>
+            <div class="carnet">
+                <table>
+                    <caption>Petit lexique de voyage</caption>
+                    <thead>
+                        <tr><th scope="col">Français</th><th scope="col">Italien</th><th scope="col">Anglais</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">la valise</th><td lang="it">la valigia</td><td lang="en">the suitcase</td></tr>
+                        <tr><th scope="row">le billet</th><td lang="it">il biglietto</td><td lang="en">the ticket</td></tr>
+                        <tr><th scope="row">le passeport</th><td lang="it">il passaporto</td><td lang="en">the passport</td></tr>
+                        <tr><th scope="row">la gare</th><td lang="it">la stazione</td><td lang="en">the station</td></tr>
+                        <tr><th scope="row">l'aéroport</th><td lang="it">l'aeroporto</td><td lang="en">the airport</td></tr>
+                        <tr><th scope="row">le cadeau</th><td lang="it">il regalo</td><td lang="en">the present</td></tr>
+                        <tr><th scope="row">le sapin</th><td lang="it">l'albero di Natale</td><td lang="en">the Christmas tree</td></tr>
+                        <tr><th scope="row">Bon voyage !</th><td lang="it">Buon viaggio!</td><td lang="en">Have a nice trip!</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="horloges">
+                    <h3>Minuit à Toulon, le soir de Noël</h3>
+                    <p>Quelle heure est-il ailleurs quand on ouvre les cadeaux ? C'est l'histoire des fuseaux horaires.</p>
+                    <ul>
+                        <li><span>Toulon</span><time>25 déc. · 00 h 00</time></li>
+                        <li><span>Rome</span><time>25 déc. · 00 h 00</time></li>
+                        <li><span>Montréal</span><time>24 déc. · 18 h 00</time></li>
+                        <li><span>Sydney</span><time>25 déc. · 10 h 00</time></li>
+                    </ul>
+                    <p class="astuce">À Sydney, les enfants ont déjà ouvert leurs cadeaux depuis des heures. À Montréal, on n'est pas encore passé à table !</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="valise" aria-labelledby="titre-valise">
+            <h2 id="titre-valise">La valise de Noël</h2>
+            <ul>
+                <li>Les passeports (vérifier la date !)</li>
+                <li>Le maillot du RCT, même en Australie</li>
+                <li>Un bonnet pour le Canada</li>
+                <li>Un adaptateur de prise (Australie et Canada)</li>
+                <li>Les 13 desserts… pour la route</li>
+                <li>Un carnet pour écrire les nouveaux mots</li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
-        &copy; 2026 Famille Lhopital - Sud & Passion
+        <p>&copy; 2026 Famille Lhopital · Sud, Passion &amp; Voyages</p>
     </footer>
+
+    <div class="neige" id="neige" aria-hidden="true"></div>
+    <button type="button" class="stop-neige" id="stop-neige" hidden>❄ Arrêter la neige</button>
+
+    <script>
+    (function () {
+        // Compte à rebours avant Noël
+        var now = new Date();
+        var noel = new Date(now.getFullYear(), 11, 25);
+        if (now > new Date(now.getFullYear(), 11, 26)) noel = new Date(now.getFullYear() + 1, 11, 25);
+        var debut = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var jours = Math.round((noel - debut) / 86400000);
+        var elJours = document.getElementById('jours');
+        var elLabel = document.getElementById('jours-label');
+        if (jours <= 0) {
+            elJours.textContent = '🎄';
+            elLabel.textContent = "C'est Noël !";
+        } else {
+            elJours.textContent = 'J-' + jours;
+            elLabel.textContent = jours === 1 ? 'demain, c’est Noël' : 'avant Noël';
+        }
+
+        // Neige (désactivée si l'utilisateur préfère moins d'animations)
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var zone = document.getElementById('neige');
+        var bouton = document.getElementById('stop-neige');
+        var symboles = ['❄', '❅', '•', '❆', '•'];
+        var nb = window.innerWidth < 600 ? 28 : 55;
+        for (var i = 0; i < nb; i++) {
+            var f = document.createElement('span');
+            f.className = 'flocon';
+            f.textContent = symboles[i % symboles.length];
+            var chute = 8 + Math.random() * 10;
+            f.style.left = (Math.random() * 100) + 'vw';
+            f.style.fontSize = (8 + Math.random() * 16) + 'px';
+            f.style.opacity = (0.5 + Math.random() * 0.5).toFixed(2);
+            f.style.animationDuration = chute + 's, ' + (2 + Math.random() * 3) + 's';
+            f.style.animationDelay = (-Math.random() * chute) + 's, 0s';
+            zone.appendChild(f);
+        }
+        bouton.hidden = false;
+        bouton.addEventListener('click', function () {
+            var arret = !zone.hidden;
+            zone.hidden = arret;
+            bouton.textContent = arret ? '❄ Relancer la neige' : '❄ Arrêter la neige';
+        });
+    })();
+    </script>
 </body>
 </html>
