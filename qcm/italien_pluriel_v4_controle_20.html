@@ -86,6 +86,14 @@ h1{font-size:1.05em;margin:0;font-weight:700}
 .review .item p{margin:.2em 0}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 @media (max-width:520px){.qrow{flex-direction:column;gap:10px}.segments{gap:4px}}
+.saisie{list-style:none;padding:0;margin:0}
+.saisie form{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.saisie input{flex:1 1 260px;min-width:0;font:inherit;font-size:1.1em;color:var(--text);background:var(--card);
+  border:2px solid var(--border);border-radius:14px;padding:14px 16px}
+.saisie input:focus{outline:3px solid var(--accent);outline-offset:2px;border-color:var(--accent)}
+.saisie input.ok{border-color:var(--ok);background:var(--ok-soft)}
+.saisie input.ko{border-color:var(--ko);background:var(--ko-soft)}
+.saisie .aide{width:100%;margin:0;color:var(--muted);font-size:.9em}
 </style>
     {% include theme-head.html racine="../" %}
 </head>
@@ -136,7 +144,7 @@ h1{font-size:1.05em;margin:0;font-weight:700}
 <script id="quiz-data" type="application/json">
 {
   "title": "Contrôle : articles et pluriel",
-  "subtitle": "Italien – Articles et pluriel – Série de 20",
+  "subtitle": "Italien – Articles et pluriel – 10 QCM + 10 à écrire",
   "accessible": true,
   "questions": [
     {
@@ -260,124 +268,74 @@ h1{font-size:1.05em;margin:0;font-weight:700}
       "explain": "**un' → delle**. amica → amiche, inglese (-e) → inglesi."
     },
     {
-      "q": "Mets au pluriel : **il fiore giallo** (sing.) = ?",
-      "choices": [
-        "i fiori gialli",
-        "i fiore gialli",
-        "le fiori gialli",
-        "i fiori gialle"
-      ],
-      "answer": 0,
+      "q": "Écris le pluriel : **il fiore giallo** (sing.) = ?",
+      "answer": "i fiori gialli",
       "hint": "Fiore est masculin, finit par -e.",
-      "explain": "**il → i**. fiore (-e) → fiori, giallo → gialli."
+      "explain": "**il → i**. fiore (-e) → fiori, giallo → gialli.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **la chiave grande** (sing.) = ?",
-      "choices": [
-        "le chiave grande",
-        "le chiave grandi",
-        "le chiavi grandi",
-        "la chiavi grandi"
-      ],
-      "answer": 2,
+      "q": "Écris le pluriel : **la chiave grande** (sing.) = ?",
+      "answer": "le chiavi grandi",
       "hint": "Les noms en -e font leur pluriel en -i, même au féminin.",
-      "explain": "**la → le**, mais **-e → -i** : le chiavi grandi."
+      "explain": "**la → le**, mais **-e → -i** : le chiavi grandi.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **lo specchio rotto** (sing.) = ?",
-      "choices": [
-        "i specchi rotti",
-        "gli specchi rotti",
-        "gli specchii rotti",
-        "gli specchi rotte"
-      ],
-      "answer": 1,
+      "q": "Écris le pluriel : **lo specchio rotto** (sing.) = ?",
+      "answer": "gli specchi rotti",
       "hint": "Specchio finit par -io : un seul i au pluriel.",
-      "explain": "**lo → gli**. specchio → specchi (un seul **i**), rotto → rotti."
+      "explain": "**lo → gli**. specchio → specchi (un seul **i**), rotto → rotti.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **l'occhio azzurro** (sing.) = ?",
-      "choices": [
-        "i occhi azzurri",
-        "gli occhii azzurri",
-        "le occhi azzurri",
-        "gli occhi azzurri"
-      ],
-      "answer": 3,
+      "q": "Écris le pluriel : **l'occhio azzurro** (sing.) = ?",
+      "answer": "gli occhi azzurri",
       "hint": "Occhio est masculin et commence par une voyelle.",
-      "explain": "**l' (masc.) → gli**. occhio → occhi, azzurro → azzurri."
+      "explain": "**l' (masc.) → gli**. occhio → occhi, azzurro → azzurri.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **un lago tedesco** (sing.) = ?",
-      "choices": [
-        "dei laghi tedeschi",
-        "dei lagi tedesci",
-        "degli laghi tedeschi",
-        "dei laghi tedesci"
-      ],
-      "answer": 0,
+      "q": "Écris le pluriel : **un lago tedesco** (sing.) = ?",
+      "answer": "dei laghi tedeschi",
       "hint": "Lago et tedesco gardent un son dur.",
-      "explain": "**un → dei**. **-go → -ghi**, **-co → -chi** : laghi tedeschi."
+      "explain": "**un → dei**. **-go → -ghi**, **-co → -chi** : laghi tedeschi.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **una lezione facile** (sing.) = ?",
-      "choices": [
-        "delle lezione facile",
-        "delle lezioni facile",
-        "delle lezioni facili",
-        "dei lezioni facili"
-      ],
-      "answer": 2,
+      "q": "Écris le pluriel : **una lezione facile** (sing.) = ?",
+      "answer": "delle lezioni facili",
       "hint": "Lezione et facile finissent par -e.",
-      "explain": "**una → delle**. **-e → -i** : lezioni facili."
+      "explain": "**una → delle**. **-e → -i** : lezioni facili.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **il problema difficile** (sing.) = ?",
-      "choices": [
-        "le probleme difficili",
-        "i probleme difficili",
-        "i problema difficili",
-        "i problemi difficili"
-      ],
-      "answer": 3,
+      "q": "Écris le pluriel : **il problema difficile** (sing.) = ?",
+      "answer": "i problemi difficili",
       "hint": "Attention : problema est masculin.",
-      "explain": "Problema est **masculin** : **-a → -i**. i problemi difficili."
+      "explain": "Problema est **masculin** : **-a → -i**. i problemi difficili.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **la città antica** (sing.) = ?",
-      "choices": [
-        "le cittè antiche",
-        "le città antiche",
-        "le città antice",
-        "le cittadi antiche"
-      ],
-      "answer": 1,
+      "q": "Écris le pluriel : **la città antica** (sing.) = ?",
+      "answer": "le città antiche",
       "hint": "Un nom avec un accent final ne change pas.",
-      "explain": "**città** est invariable. antica → antiche (**-ca → -che**)."
+      "explain": "**città** est invariable. antica → antiche (**-ca → -che**).",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **un cane piccolo** (sing.) = ?",
-      "choices": [
-        "degli cani piccoli",
-        "dei cane piccoli",
-        "dei cani piccoli",
-        "dei cani piccole"
-      ],
-      "answer": 2,
+      "q": "Écris le pluriel : **un cane piccolo** (sing.) = ?",
+      "answer": "dei cani piccoli",
       "hint": "Cane est masculin, finit par -e.",
-      "explain": "**un → dei**. cane → cani, piccolo → piccoli."
+      "explain": "**un → dei**. cane → cani, piccolo → piccoli.",
+      "type": "saisie"
     },
     {
-      "q": "Mets au pluriel : **l'isola greca** (sing.) = ?",
-      "choices": [
-        "le isole greche",
-        "gli isole greche",
-        "le isole grece",
-        "le isoli greche"
-      ],
-      "answer": 0,
+      "q": "Écris le pluriel : **l'isola greca** (sing.) = ?",
+      "answer": "le isole greche",
       "hint": "Isola est féminin. Garde le son dur [k].",
-      "explain": "**l' (fém.) → le**. isola → isole, **greca → greche**."
+      "explain": "**l' (fém.) → le**. isola → isole, **greca → greche**.",
+      "type": "saisie"
     }
   ]
 }
@@ -443,7 +401,8 @@ h1{font-size:1.05em;margin:0;font-weight:700}
   }
 
   function start(indices) {
-    order = shuffle(indices.slice()); idx = 0; score = 0; errors = [];
+    order = shuffle(indices.filter(function (i) { return data.questions[i].type !== "saisie"; }))
+      .concat(shuffle(indices.filter(function (i) { return data.questions[i].type === "saisie"; }))); idx = 0; score = 0; errors = [];
     $("result").classList.add("hidden"); $("quiz").classList.remove("hidden");
     show();
   }
@@ -460,6 +419,9 @@ h1{font-size:1.05em;margin:0;font-weight:700}
     else { img.removeAttribute("src"); img.classList.add("hidden"); }
 
     var list = $("choices"); list.textContent = "";
+    list.className = q.type === "saisie" ? "saisie" : "choices";
+    if (q.type === "saisie") renderSaisie(list, q);
+    else {
     var opts = shuffle(q.choices.map(function (c, i) { return { text: c, correct: i === q.answer }; }));
     opts.forEach(function (o, i) {
       var li = document.createElement("li");
@@ -471,6 +433,7 @@ h1{font-size:1.05em;margin:0;font-weight:700}
       b.addEventListener("click", function () { choose(b); });
       li.appendChild(b); list.appendChild(li);
     });
+    }
 
     var hint = $("hint"); hint.textContent = ""; hint.classList.add("hidden");
     $("hint-btn").classList.toggle("hidden", !q.hint);
@@ -478,7 +441,7 @@ h1{font-size:1.05em;margin:0;font-weight:700}
     var fb = $("feedback"); fb.className = "feedback hidden"; fb.textContent = "";
     $("next").classList.add("hidden");
     $("next").textContent = idx + 1 < order.length ? "Question suivante →" : "Voir mon résultat";
-    var first = list.querySelector("button"); if (first) first.focus({ preventScroll: true });
+    var first = list.querySelector("input, button"); if (first) first.focus({ preventScroll: true });
   }
 
   $("hint-btn").addEventListener("click", function () {
@@ -489,6 +452,52 @@ h1{font-size:1.05em;margin:0;font-weight:700}
     hint.classList.toggle("hidden", !open);
     this.setAttribute("aria-expanded", open ? "true" : "false");
   });
+
+  function norm(t) {
+    return String(t).toLowerCase().replace(/[‘’´`]/g, "'").replace(/\s*'\s*/g, "'")
+      .replace(/\s+/g, " ").replace(/[.!?;,]+$/, "").trim();
+  }
+
+  function renderSaisie(list, q) {
+    var li = document.createElement("li");
+    var form = document.createElement("form"); form.autocomplete = "off";
+    var input = document.createElement("input");
+    input.type = "text"; input.id = "reponse"; input.setAttribute("aria-label", "Écris ta réponse");
+    input.placeholder = "Écris le pluriel ici…";
+    input.autocomplete = "off"; input.spellcheck = false;
+    input.setAttribute("autocapitalize", "off"); input.setAttribute("autocorrect", "off");
+    var ok = document.createElement("button"); ok.type = "submit"; ok.className = "btn"; ok.textContent = "Valider";
+    var aide = document.createElement("p"); aide.className = "aide";
+    aide.textContent = "Écris l'article, le nom et l'adjectif. Appuie sur Entrée ou sur Valider.";
+    form.appendChild(input); form.appendChild(ok); form.appendChild(aide);
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (answered) return;
+      if (!input.value.trim()) { input.focus(); return; }
+      checkSaisie(input, ok);
+    });
+    li.appendChild(form); list.appendChild(li);
+  }
+
+  function checkSaisie(input, btn) {
+    answered = true;
+    var q = current;
+    var good = [q.answer].concat(q.accept || []).map(norm);
+    var ok = good.indexOf(norm(input.value)) !== -1;
+    input.readOnly = true; btn.disabled = true;
+    input.classList.add(ok ? "ok" : "ko");
+    if (ok) score++; else errors.push(order[idx]);
+    $("hint-btn").classList.add("hidden");
+    var fb = $("feedback");
+    fb.className = "feedback " + (ok ? "ok" : "ko");
+    var head = document.createElement("p"); var s = document.createElement("strong");
+    s.textContent = ok ? "✅ Bonne réponse !" : "Pas tout à fait… La bonne réponse est :";
+    head.appendChild(s);
+    if (!ok) { var r = document.createElement("strong"); r.textContent = " " + q.answer; head.appendChild(r); }
+    fb.appendChild(head);
+    if (q.explain) { var p = document.createElement("p"); setRich(p, q.explain); fb.appendChild(p); }
+    $("next").classList.remove("hidden"); $("next").focus({ preventScroll: true });
+  }
 
   function addMark(btn, symbol, label) {
     var m = document.createElement("span"); m.className = "mark"; m.textContent = symbol; m.setAttribute("aria-label", label);
@@ -546,7 +555,7 @@ h1{font-size:1.05em;margin:0;font-weight:700}
       var d = document.createElement("div"); d.className = "item";
       var p1 = document.createElement("p"); setRich(p1, q.q);
       var p2 = document.createElement("p"); var s = document.createElement("strong"); s.textContent = "Réponse : ";
-      p2.appendChild(s); var a = document.createElement("span"); setRich(a, q.choices[q.answer]); p2.appendChild(a);
+      p2.appendChild(s); var a = document.createElement("span"); setRich(a, q.type === "saisie" ? q.answer : q.choices[q.answer]); p2.appendChild(a);
       d.appendChild(p1); d.appendChild(p2);
       if (q.explain) { var p3 = document.createElement("p"); setRich(p3, q.explain); d.appendChild(p3); }
       review.appendChild(d);
